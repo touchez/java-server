@@ -1,6 +1,7 @@
 package com.iotexample.demo.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class JiuzhenExample {
@@ -204,52 +205,52 @@ public class JiuzhenExample {
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenIdEqualTo(Integer value) {
+        public Criteria andJiuzhenIdEqualTo(Long value) {
             addCriterion("jiuzhen_id =", value, "jiuzhenId");
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenIdNotEqualTo(Integer value) {
+        public Criteria andJiuzhenIdNotEqualTo(Long value) {
             addCriterion("jiuzhen_id <>", value, "jiuzhenId");
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenIdGreaterThan(Integer value) {
+        public Criteria andJiuzhenIdGreaterThan(Long value) {
             addCriterion("jiuzhen_id >", value, "jiuzhenId");
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andJiuzhenIdGreaterThanOrEqualTo(Long value) {
             addCriterion("jiuzhen_id >=", value, "jiuzhenId");
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenIdLessThan(Integer value) {
+        public Criteria andJiuzhenIdLessThan(Long value) {
             addCriterion("jiuzhen_id <", value, "jiuzhenId");
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenIdLessThanOrEqualTo(Integer value) {
+        public Criteria andJiuzhenIdLessThanOrEqualTo(Long value) {
             addCriterion("jiuzhen_id <=", value, "jiuzhenId");
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenIdIn(List<Integer> values) {
+        public Criteria andJiuzhenIdIn(List<Long> values) {
             addCriterion("jiuzhen_id in", values, "jiuzhenId");
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenIdNotIn(List<Integer> values) {
+        public Criteria andJiuzhenIdNotIn(List<Long> values) {
             addCriterion("jiuzhen_id not in", values, "jiuzhenId");
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenIdBetween(Integer value1, Integer value2) {
+        public Criteria andJiuzhenIdBetween(Long value1, Long value2) {
             addCriterion("jiuzhen_id between", value1, value2, "jiuzhenId");
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andJiuzhenIdNotBetween(Long value1, Long value2) {
             addCriterion("jiuzhen_id not between", value1, value2, "jiuzhenId");
             return (Criteria) this;
         }
@@ -264,52 +265,52 @@ public class JiuzhenExample {
             return (Criteria) this;
         }
 
-        public Criteria andDoctorIdEqualTo(Integer value) {
+        public Criteria andDoctorIdEqualTo(Long value) {
             addCriterion("doctor_id =", value, "doctorId");
             return (Criteria) this;
         }
 
-        public Criteria andDoctorIdNotEqualTo(Integer value) {
+        public Criteria andDoctorIdNotEqualTo(Long value) {
             addCriterion("doctor_id <>", value, "doctorId");
             return (Criteria) this;
         }
 
-        public Criteria andDoctorIdGreaterThan(Integer value) {
+        public Criteria andDoctorIdGreaterThan(Long value) {
             addCriterion("doctor_id >", value, "doctorId");
             return (Criteria) this;
         }
 
-        public Criteria andDoctorIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andDoctorIdGreaterThanOrEqualTo(Long value) {
             addCriterion("doctor_id >=", value, "doctorId");
             return (Criteria) this;
         }
 
-        public Criteria andDoctorIdLessThan(Integer value) {
+        public Criteria andDoctorIdLessThan(Long value) {
             addCriterion("doctor_id <", value, "doctorId");
             return (Criteria) this;
         }
 
-        public Criteria andDoctorIdLessThanOrEqualTo(Integer value) {
+        public Criteria andDoctorIdLessThanOrEqualTo(Long value) {
             addCriterion("doctor_id <=", value, "doctorId");
             return (Criteria) this;
         }
 
-        public Criteria andDoctorIdIn(List<Integer> values) {
+        public Criteria andDoctorIdIn(List<Long> values) {
             addCriterion("doctor_id in", values, "doctorId");
             return (Criteria) this;
         }
 
-        public Criteria andDoctorIdNotIn(List<Integer> values) {
+        public Criteria andDoctorIdNotIn(List<Long> values) {
             addCriterion("doctor_id not in", values, "doctorId");
             return (Criteria) this;
         }
 
-        public Criteria andDoctorIdBetween(Integer value1, Integer value2) {
+        public Criteria andDoctorIdBetween(Long value1, Long value2) {
             addCriterion("doctor_id between", value1, value2, "doctorId");
             return (Criteria) this;
         }
 
-        public Criteria andDoctorIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andDoctorIdNotBetween(Long value1, Long value2) {
             addCriterion("doctor_id not between", value1, value2, "doctorId");
             return (Criteria) this;
         }
@@ -384,73 +385,123 @@ public class JiuzhenExample {
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenContentIsNull() {
-            addCriterion("jiuzhen_content is null");
+        public Criteria andUserIdIsNull() {
+            addCriterion("user_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenContentIsNotNull() {
-            addCriterion("jiuzhen_content is not null");
+        public Criteria andUserIdIsNotNull() {
+            addCriterion("user_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenContentEqualTo(String value) {
-            addCriterion("jiuzhen_content =", value, "jiuzhenContent");
+        public Criteria andUserIdEqualTo(Long value) {
+            addCriterion("user_id =", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenContentNotEqualTo(String value) {
-            addCriterion("jiuzhen_content <>", value, "jiuzhenContent");
+        public Criteria andUserIdNotEqualTo(Long value) {
+            addCriterion("user_id <>", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenContentGreaterThan(String value) {
-            addCriterion("jiuzhen_content >", value, "jiuzhenContent");
+        public Criteria andUserIdGreaterThan(Long value) {
+            addCriterion("user_id >", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenContentGreaterThanOrEqualTo(String value) {
-            addCriterion("jiuzhen_content >=", value, "jiuzhenContent");
+        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("user_id >=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenContentLessThan(String value) {
-            addCriterion("jiuzhen_content <", value, "jiuzhenContent");
+        public Criteria andUserIdLessThan(Long value) {
+            addCriterion("user_id <", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenContentLessThanOrEqualTo(String value) {
-            addCriterion("jiuzhen_content <=", value, "jiuzhenContent");
+        public Criteria andUserIdLessThanOrEqualTo(Long value) {
+            addCriterion("user_id <=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenContentLike(String value) {
-            addCriterion("jiuzhen_content like", value, "jiuzhenContent");
+        public Criteria andUserIdIn(List<Long> values) {
+            addCriterion("user_id in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenContentNotLike(String value) {
-            addCriterion("jiuzhen_content not like", value, "jiuzhenContent");
+        public Criteria andUserIdNotIn(List<Long> values) {
+            addCriterion("user_id not in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenContentIn(List<String> values) {
-            addCriterion("jiuzhen_content in", values, "jiuzhenContent");
+        public Criteria andUserIdBetween(Long value1, Long value2) {
+            addCriterion("user_id between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenContentNotIn(List<String> values) {
-            addCriterion("jiuzhen_content not in", values, "jiuzhenContent");
+        public Criteria andUserIdNotBetween(Long value1, Long value2) {
+            addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenContentBetween(String value1, String value2) {
-            addCriterion("jiuzhen_content between", value1, value2, "jiuzhenContent");
+        public Criteria andCreateDateIsNull() {
+            addCriterion("create_date is null");
             return (Criteria) this;
         }
 
-        public Criteria andJiuzhenContentNotBetween(String value1, String value2) {
-            addCriterion("jiuzhen_content not between", value1, value2, "jiuzhenContent");
+        public Criteria andCreateDateIsNotNull() {
+            addCriterion("create_date is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateEqualTo(Date value) {
+            addCriterion("create_date =", value, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateNotEqualTo(Date value) {
+            addCriterion("create_date <>", value, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateGreaterThan(Date value) {
+            addCriterion("create_date >", value, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateGreaterThanOrEqualTo(Date value) {
+            addCriterion("create_date >=", value, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateLessThan(Date value) {
+            addCriterion("create_date <", value, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateLessThanOrEqualTo(Date value) {
+            addCriterion("create_date <=", value, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateIn(List<Date> values) {
+            addCriterion("create_date in", values, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateNotIn(List<Date> values) {
+            addCriterion("create_date not in", values, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateBetween(Date value1, Date value2) {
+            addCriterion("create_date between", value1, value2, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateNotBetween(Date value1, Date value2) {
+            addCriterion("create_date not between", value1, value2, "createDate");
             return (Criteria) this;
         }
     }

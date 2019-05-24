@@ -16,8 +16,10 @@
         <property name="javaFileEncoding" value="utf-8" />
 
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
-
+        <plugin type="org.mybatis.generator.plugins.FluentBuilderMethodsPlugin" />
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+        <plugin type="org.mybatis.generator.plugins.MapperAnnotationPlugin" />
 
         <!-- 注释 -->
         <commentGenerator >
@@ -77,6 +79,10 @@
         <table tableName="jiuzhen" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
             <property name="useActualColumnNames" value="false" />
             <generatedKey column="jiuzhen_id" sqlStatement="Mysql" identity="true" />
+        </table>
+        <table tableName="doctor" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+            <property name="useActualColumnNames" value="false" />
+            <generatedKey column="doctor_id" sqlStatement="Mysql" identity="true" />
         </table>
 
     </context>

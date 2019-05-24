@@ -205,52 +205,52 @@ public class JianchaorderExample {
             return (Criteria) this;
         }
 
-        public Criteria andJianchaorderIdEqualTo(Integer value) {
+        public Criteria andJianchaorderIdEqualTo(Long value) {
             addCriterion("jianchaOrder_id =", value, "jianchaorderId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaorderIdNotEqualTo(Integer value) {
+        public Criteria andJianchaorderIdNotEqualTo(Long value) {
             addCriterion("jianchaOrder_id <>", value, "jianchaorderId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaorderIdGreaterThan(Integer value) {
+        public Criteria andJianchaorderIdGreaterThan(Long value) {
             addCriterion("jianchaOrder_id >", value, "jianchaorderId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaorderIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andJianchaorderIdGreaterThanOrEqualTo(Long value) {
             addCriterion("jianchaOrder_id >=", value, "jianchaorderId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaorderIdLessThan(Integer value) {
+        public Criteria andJianchaorderIdLessThan(Long value) {
             addCriterion("jianchaOrder_id <", value, "jianchaorderId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaorderIdLessThanOrEqualTo(Integer value) {
+        public Criteria andJianchaorderIdLessThanOrEqualTo(Long value) {
             addCriterion("jianchaOrder_id <=", value, "jianchaorderId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaorderIdIn(List<Integer> values) {
+        public Criteria andJianchaorderIdIn(List<Long> values) {
             addCriterion("jianchaOrder_id in", values, "jianchaorderId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaorderIdNotIn(List<Integer> values) {
+        public Criteria andJianchaorderIdNotIn(List<Long> values) {
             addCriterion("jianchaOrder_id not in", values, "jianchaorderId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaorderIdBetween(Integer value1, Integer value2) {
+        public Criteria andJianchaorderIdBetween(Long value1, Long value2) {
             addCriterion("jianchaOrder_id between", value1, value2, "jianchaorderId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaorderIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andJianchaorderIdNotBetween(Long value1, Long value2) {
             addCriterion("jianchaOrder_id not between", value1, value2, "jianchaorderId");
             return (Criteria) this;
         }
@@ -265,53 +265,113 @@ public class JianchaorderExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserIdEqualTo(Integer value) {
+        public Criteria andUserIdEqualTo(Long value) {
             addCriterion("user_id =", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotEqualTo(Integer value) {
+        public Criteria andUserIdNotEqualTo(Long value) {
             addCriterion("user_id <>", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThan(Integer value) {
+        public Criteria andUserIdGreaterThan(Long value) {
             addCriterion("user_id >", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
             addCriterion("user_id >=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThan(Integer value) {
+        public Criteria andUserIdLessThan(Long value) {
             addCriterion("user_id <", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThanOrEqualTo(Integer value) {
+        public Criteria andUserIdLessThanOrEqualTo(Long value) {
             addCriterion("user_id <=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIn(List<Integer> values) {
+        public Criteria andUserIdIn(List<Long> values) {
             addCriterion("user_id in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotIn(List<Integer> values) {
+        public Criteria andUserIdNotIn(List<Long> values) {
             addCriterion("user_id not in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdBetween(Long value1, Long value2) {
             addCriterion("user_id between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdNotBetween(Long value1, Long value2) {
             addCriterion("user_id not between", value1, value2, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andJiuzhenIdIsNull() {
+            addCriterion("jiuzhen_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJiuzhenIdIsNotNull() {
+            addCriterion("jiuzhen_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJiuzhenIdEqualTo(Long value) {
+            addCriterion("jiuzhen_id =", value, "jiuzhenId");
+            return (Criteria) this;
+        }
+
+        public Criteria andJiuzhenIdNotEqualTo(Long value) {
+            addCriterion("jiuzhen_id <>", value, "jiuzhenId");
+            return (Criteria) this;
+        }
+
+        public Criteria andJiuzhenIdGreaterThan(Long value) {
+            addCriterion("jiuzhen_id >", value, "jiuzhenId");
+            return (Criteria) this;
+        }
+
+        public Criteria andJiuzhenIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("jiuzhen_id >=", value, "jiuzhenId");
+            return (Criteria) this;
+        }
+
+        public Criteria andJiuzhenIdLessThan(Long value) {
+            addCriterion("jiuzhen_id <", value, "jiuzhenId");
+            return (Criteria) this;
+        }
+
+        public Criteria andJiuzhenIdLessThanOrEqualTo(Long value) {
+            addCriterion("jiuzhen_id <=", value, "jiuzhenId");
+            return (Criteria) this;
+        }
+
+        public Criteria andJiuzhenIdIn(List<Long> values) {
+            addCriterion("jiuzhen_id in", values, "jiuzhenId");
+            return (Criteria) this;
+        }
+
+        public Criteria andJiuzhenIdNotIn(List<Long> values) {
+            addCriterion("jiuzhen_id not in", values, "jiuzhenId");
+            return (Criteria) this;
+        }
+
+        public Criteria andJiuzhenIdBetween(Long value1, Long value2) {
+            addCriterion("jiuzhen_id between", value1, value2, "jiuzhenId");
+            return (Criteria) this;
+        }
+
+        public Criteria andJiuzhenIdNotBetween(Long value1, Long value2) {
+            addCriterion("jiuzhen_id not between", value1, value2, "jiuzhenId");
             return (Criteria) this;
         }
 
@@ -325,52 +385,52 @@ public class JianchaorderExample {
             return (Criteria) this;
         }
 
-        public Criteria andJianchaIdEqualTo(Integer value) {
+        public Criteria andJianchaIdEqualTo(Long value) {
             addCriterion("jiancha_id =", value, "jianchaId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaIdNotEqualTo(Integer value) {
+        public Criteria andJianchaIdNotEqualTo(Long value) {
             addCriterion("jiancha_id <>", value, "jianchaId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaIdGreaterThan(Integer value) {
+        public Criteria andJianchaIdGreaterThan(Long value) {
             addCriterion("jiancha_id >", value, "jianchaId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andJianchaIdGreaterThanOrEqualTo(Long value) {
             addCriterion("jiancha_id >=", value, "jianchaId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaIdLessThan(Integer value) {
+        public Criteria andJianchaIdLessThan(Long value) {
             addCriterion("jiancha_id <", value, "jianchaId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaIdLessThanOrEqualTo(Integer value) {
+        public Criteria andJianchaIdLessThanOrEqualTo(Long value) {
             addCriterion("jiancha_id <=", value, "jianchaId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaIdIn(List<Integer> values) {
+        public Criteria andJianchaIdIn(List<Long> values) {
             addCriterion("jiancha_id in", values, "jianchaId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaIdNotIn(List<Integer> values) {
+        public Criteria andJianchaIdNotIn(List<Long> values) {
             addCriterion("jiancha_id not in", values, "jianchaId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaIdBetween(Integer value1, Integer value2) {
+        public Criteria andJianchaIdBetween(Long value1, Long value2) {
             addCriterion("jiancha_id between", value1, value2, "jianchaId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andJianchaIdNotBetween(Long value1, Long value2) {
             addCriterion("jiancha_id not between", value1, value2, "jianchaId");
             return (Criteria) this;
         }
@@ -385,52 +445,52 @@ public class JianchaorderExample {
             return (Criteria) this;
         }
 
-        public Criteria andReportIdEqualTo(Integer value) {
+        public Criteria andReportIdEqualTo(Long value) {
             addCriterion("report_id =", value, "reportId");
             return (Criteria) this;
         }
 
-        public Criteria andReportIdNotEqualTo(Integer value) {
+        public Criteria andReportIdNotEqualTo(Long value) {
             addCriterion("report_id <>", value, "reportId");
             return (Criteria) this;
         }
 
-        public Criteria andReportIdGreaterThan(Integer value) {
+        public Criteria andReportIdGreaterThan(Long value) {
             addCriterion("report_id >", value, "reportId");
             return (Criteria) this;
         }
 
-        public Criteria andReportIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andReportIdGreaterThanOrEqualTo(Long value) {
             addCriterion("report_id >=", value, "reportId");
             return (Criteria) this;
         }
 
-        public Criteria andReportIdLessThan(Integer value) {
+        public Criteria andReportIdLessThan(Long value) {
             addCriterion("report_id <", value, "reportId");
             return (Criteria) this;
         }
 
-        public Criteria andReportIdLessThanOrEqualTo(Integer value) {
+        public Criteria andReportIdLessThanOrEqualTo(Long value) {
             addCriterion("report_id <=", value, "reportId");
             return (Criteria) this;
         }
 
-        public Criteria andReportIdIn(List<Integer> values) {
+        public Criteria andReportIdIn(List<Long> values) {
             addCriterion("report_id in", values, "reportId");
             return (Criteria) this;
         }
 
-        public Criteria andReportIdNotIn(List<Integer> values) {
+        public Criteria andReportIdNotIn(List<Long> values) {
             addCriterion("report_id not in", values, "reportId");
             return (Criteria) this;
         }
 
-        public Criteria andReportIdBetween(Integer value1, Integer value2) {
+        public Criteria andReportIdBetween(Long value1, Long value2) {
             addCriterion("report_id between", value1, value2, "reportId");
             return (Criteria) this;
         }
 
-        public Criteria andReportIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andReportIdNotBetween(Long value1, Long value2) {
             addCriterion("report_id not between", value1, value2, "reportId");
             return (Criteria) this;
         }
@@ -492,6 +552,66 @@ public class JianchaorderExample {
 
         public Criteria andCreateDateNotBetween(Date value1, Date value2) {
             addCriterion("create_date not between", value1, value2, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andStartDateIsNull() {
+            addCriterion("start_date is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStartDateIsNotNull() {
+            addCriterion("start_date is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStartDateEqualTo(Date value) {
+            addCriterion("start_date =", value, "startDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andStartDateNotEqualTo(Date value) {
+            addCriterion("start_date <>", value, "startDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andStartDateGreaterThan(Date value) {
+            addCriterion("start_date >", value, "startDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andStartDateGreaterThanOrEqualTo(Date value) {
+            addCriterion("start_date >=", value, "startDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andStartDateLessThan(Date value) {
+            addCriterion("start_date <", value, "startDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andStartDateLessThanOrEqualTo(Date value) {
+            addCriterion("start_date <=", value, "startDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andStartDateIn(List<Date> values) {
+            addCriterion("start_date in", values, "startDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andStartDateNotIn(List<Date> values) {
+            addCriterion("start_date not in", values, "startDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andStartDateBetween(Date value1, Date value2) {
+            addCriterion("start_date between", value1, value2, "startDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andStartDateNotBetween(Date value1, Date value2) {
+            addCriterion("start_date not between", value1, value2, "startDate");
             return (Criteria) this;
         }
     }

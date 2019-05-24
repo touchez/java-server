@@ -205,52 +205,52 @@ public class JianchaExample {
             return (Criteria) this;
         }
 
-        public Criteria andJianchaIdEqualTo(Integer value) {
+        public Criteria andJianchaIdEqualTo(Long value) {
             addCriterion("jiancha_id =", value, "jianchaId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaIdNotEqualTo(Integer value) {
+        public Criteria andJianchaIdNotEqualTo(Long value) {
             addCriterion("jiancha_id <>", value, "jianchaId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaIdGreaterThan(Integer value) {
+        public Criteria andJianchaIdGreaterThan(Long value) {
             addCriterion("jiancha_id >", value, "jianchaId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andJianchaIdGreaterThanOrEqualTo(Long value) {
             addCriterion("jiancha_id >=", value, "jianchaId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaIdLessThan(Integer value) {
+        public Criteria andJianchaIdLessThan(Long value) {
             addCriterion("jiancha_id <", value, "jianchaId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaIdLessThanOrEqualTo(Integer value) {
+        public Criteria andJianchaIdLessThanOrEqualTo(Long value) {
             addCriterion("jiancha_id <=", value, "jianchaId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaIdIn(List<Integer> values) {
+        public Criteria andJianchaIdIn(List<Long> values) {
             addCriterion("jiancha_id in", values, "jianchaId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaIdNotIn(List<Integer> values) {
+        public Criteria andJianchaIdNotIn(List<Long> values) {
             addCriterion("jiancha_id not in", values, "jianchaId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaIdBetween(Integer value1, Integer value2) {
+        public Criteria andJianchaIdBetween(Long value1, Long value2) {
             addCriterion("jiancha_id between", value1, value2, "jianchaId");
             return (Criteria) this;
         }
 
-        public Criteria andJianchaIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andJianchaIdNotBetween(Long value1, Long value2) {
             addCriterion("jiancha_id not between", value1, value2, "jianchaId");
             return (Criteria) this;
         }
@@ -392,6 +392,66 @@ public class JianchaExample {
 
         public Criteria andJianchaAddrNotBetween(String value1, String value2) {
             addCriterion("jiancha_addr not between", value1, value2, "jianchaAddr");
+            return (Criteria) this;
+        }
+
+        public Criteria andJianchaTimeIsNull() {
+            addCriterion("jiancha_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJianchaTimeIsNotNull() {
+            addCriterion("jiancha_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJianchaTimeEqualTo(Integer value) {
+            addCriterion("jiancha_time =", value, "jianchaTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andJianchaTimeNotEqualTo(Integer value) {
+            addCriterion("jiancha_time <>", value, "jianchaTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andJianchaTimeGreaterThan(Integer value) {
+            addCriterion("jiancha_time >", value, "jianchaTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andJianchaTimeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("jiancha_time >=", value, "jianchaTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andJianchaTimeLessThan(Integer value) {
+            addCriterion("jiancha_time <", value, "jianchaTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andJianchaTimeLessThanOrEqualTo(Integer value) {
+            addCriterion("jiancha_time <=", value, "jianchaTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andJianchaTimeIn(List<Integer> values) {
+            addCriterion("jiancha_time in", values, "jianchaTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andJianchaTimeNotIn(List<Integer> values) {
+            addCriterion("jiancha_time not in", values, "jianchaTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andJianchaTimeBetween(Integer value1, Integer value2) {
+            addCriterion("jiancha_time between", value1, value2, "jianchaTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andJianchaTimeNotBetween(Integer value1, Integer value2) {
+            addCriterion("jiancha_time not between", value1, value2, "jianchaTime");
             return (Criteria) this;
         }
 

@@ -205,52 +205,52 @@ public class DepartmentExample {
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentIdEqualTo(Integer value) {
+        public Criteria andDepartmentIdEqualTo(Long value) {
             addCriterion("department_id =", value, "departmentId");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentIdNotEqualTo(Integer value) {
+        public Criteria andDepartmentIdNotEqualTo(Long value) {
             addCriterion("department_id <>", value, "departmentId");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentIdGreaterThan(Integer value) {
+        public Criteria andDepartmentIdGreaterThan(Long value) {
             addCriterion("department_id >", value, "departmentId");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andDepartmentIdGreaterThanOrEqualTo(Long value) {
             addCriterion("department_id >=", value, "departmentId");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentIdLessThan(Integer value) {
+        public Criteria andDepartmentIdLessThan(Long value) {
             addCriterion("department_id <", value, "departmentId");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentIdLessThanOrEqualTo(Integer value) {
+        public Criteria andDepartmentIdLessThanOrEqualTo(Long value) {
             addCriterion("department_id <=", value, "departmentId");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentIdIn(List<Integer> values) {
+        public Criteria andDepartmentIdIn(List<Long> values) {
             addCriterion("department_id in", values, "departmentId");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentIdNotIn(List<Integer> values) {
+        public Criteria andDepartmentIdNotIn(List<Long> values) {
             addCriterion("department_id not in", values, "departmentId");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentIdBetween(Integer value1, Integer value2) {
+        public Criteria andDepartmentIdBetween(Long value1, Long value2) {
             addCriterion("department_id between", value1, value2, "departmentId");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andDepartmentIdNotBetween(Long value1, Long value2) {
             addCriterion("department_id not between", value1, value2, "departmentId");
             return (Criteria) this;
         }
@@ -405,52 +405,52 @@ public class DepartmentExample {
             return (Criteria) this;
         }
 
-        public Criteria andHospitalIdEqualTo(Integer value) {
+        public Criteria andHospitalIdEqualTo(Long value) {
             addCriterion("hospital_id =", value, "hospitalId");
             return (Criteria) this;
         }
 
-        public Criteria andHospitalIdNotEqualTo(Integer value) {
+        public Criteria andHospitalIdNotEqualTo(Long value) {
             addCriterion("hospital_id <>", value, "hospitalId");
             return (Criteria) this;
         }
 
-        public Criteria andHospitalIdGreaterThan(Integer value) {
+        public Criteria andHospitalIdGreaterThan(Long value) {
             addCriterion("hospital_id >", value, "hospitalId");
             return (Criteria) this;
         }
 
-        public Criteria andHospitalIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andHospitalIdGreaterThanOrEqualTo(Long value) {
             addCriterion("hospital_id >=", value, "hospitalId");
             return (Criteria) this;
         }
 
-        public Criteria andHospitalIdLessThan(Integer value) {
+        public Criteria andHospitalIdLessThan(Long value) {
             addCriterion("hospital_id <", value, "hospitalId");
             return (Criteria) this;
         }
 
-        public Criteria andHospitalIdLessThanOrEqualTo(Integer value) {
+        public Criteria andHospitalIdLessThanOrEqualTo(Long value) {
             addCriterion("hospital_id <=", value, "hospitalId");
             return (Criteria) this;
         }
 
-        public Criteria andHospitalIdIn(List<Integer> values) {
+        public Criteria andHospitalIdIn(List<Long> values) {
             addCriterion("hospital_id in", values, "hospitalId");
             return (Criteria) this;
         }
 
-        public Criteria andHospitalIdNotIn(List<Integer> values) {
+        public Criteria andHospitalIdNotIn(List<Long> values) {
             addCriterion("hospital_id not in", values, "hospitalId");
             return (Criteria) this;
         }
 
-        public Criteria andHospitalIdBetween(Integer value1, Integer value2) {
+        public Criteria andHospitalIdBetween(Long value1, Long value2) {
             addCriterion("hospital_id between", value1, value2, "hospitalId");
             return (Criteria) this;
         }
 
-        public Criteria andHospitalIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andHospitalIdNotBetween(Long value1, Long value2) {
             addCriterion("hospital_id not between", value1, value2, "hospitalId");
             return (Criteria) this;
         }
