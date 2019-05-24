@@ -56,6 +56,7 @@ public class GuahaoController {
 
       return Result.success(guahao);
     } catch (DuplicateKeyException e) {
+
       return Result.error(CodeMsg.DUPLICATE_ERROR);
     }
   }
