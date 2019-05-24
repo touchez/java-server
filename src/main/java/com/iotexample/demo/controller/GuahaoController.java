@@ -1,10 +1,12 @@
 package com.iotexample.demo.controller;
 
 import com.iotexample.demo.model.Guahao;
+import com.iotexample.demo.result.CodeMsg;
 import com.iotexample.demo.result.Result;
 import com.iotexample.demo.service.DoctorService;
 import com.iotexample.demo.service.GuahaoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,11 +49,15 @@ public class GuahaoController {
       //如果没有指定doctorId则从该科室选一个doctor出来
       doctorId = doctorService.getOneByDepartment(departmentId);
     }
-    Guahao guahao = guahaoService.guahao(userId, departmentId, doctorId);
 
-    session.setAttribute("guahao", guahao);
+    try {
+      Guahao guahao = guahaoService.guahao(userId, departmentId, doctorId);
+      session.setAttribute("guahao", guahao);
 
-    return Result.success(guahao);
+      return Result.success(guahao);
+    } catch (DuplicateKeyException e) {
+      return Result.error(CodeMsg.DUPLICATE_ERROR);
+    }
   }
 
   /**
