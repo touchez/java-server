@@ -5,7 +5,6 @@ import com.iotexample.demo.result.CodeMsg;
 import com.iotexample.demo.result.Result;
 import com.iotexample.demo.service.JianchaService;
 import com.iotexample.demo.service.JianchaorderService;
-import com.sun.org.apache.bcel.internal.classfile.Code;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
-import java.util.Date;
 
 /**
  * @program: iotdemo
@@ -56,6 +54,7 @@ public class JianchaController {
 
     long count = jianchaorderService.getWaittingCount(userId, jianchaId);
 
+    //无法获取到检查条目，应该是去了错误的检查地点
     if (count == -1) {
       log.info("userId is {}", userId);
       return Result.error(CodeMsg.CHECK_ERROR);
