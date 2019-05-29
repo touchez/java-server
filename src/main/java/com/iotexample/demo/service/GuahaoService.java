@@ -20,14 +20,18 @@ import java.util.List;
 @Service
 @Slf4j
 public class GuahaoService {
+  @Autowired
+  DepartmentService departmentService;
 
   @Autowired
   GuahaoMapper guahaoMapper;
 
   public Guahao guahao(long userId, long departmentId, long doctorId) {
+    String departmentName = departmentService.getDepartmentNameById(departmentId);
     Guahao guahao = new Guahao()
             .withUserId(userId)
             .withDepartmentId(departmentId)
+            .withDepartmentName(departmentName)
             .withDoctorId(doctorId)
             .withCreateDate(new Date());
     guahaoMapper.insert(guahao);
@@ -45,5 +49,13 @@ public class GuahaoService {
     long order = guahaoMapper.countByExample(getExample);
 
     return order;
+  }
+
+  public List<Guahao> getGuahao(long userId) {
+    GuahaoExample getExample = new GuahaoExample();
+    getExample.createCriteria()
+            .andUserIdEqualTo(userId);
+    List<Guahao> list = guahaoMapper.selectByExample(getExample);
+    return list;
   }
 }

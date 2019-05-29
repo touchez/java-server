@@ -28,7 +28,7 @@ public class DepartmentService {
     criteria.andDepartmentIdIsNotNull();
 
     List<Department>list = departmentMapper.selectByExample(departmentExample);
-    list.forEach(e -> log.info("select by example {}", e));
+    //list.forEach(e -> log.info("select by example {}", e));
 
     return list;
   }
@@ -39,9 +39,17 @@ public class DepartmentService {
     criteria.andHospitalIdEqualTo(hospitalId);
 
     List<Department>list = departmentMapper.selectByExample(departmentExample);
-    list.forEach(e -> log.info("select by example {}", e));
+    //list.forEach(e -> log.info("select by example {}", e));
 
     return list;
+  }
+
+  public String getDepartmentNameById(long departmentId) {
+    Department department = departmentMapper.selectByPrimaryKey(departmentId);
+
+    String departmentName = department.getDepartmentName();
+
+    return departmentName;
   }
 
 }

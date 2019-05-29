@@ -8,14 +8,12 @@ import com.iotexample.demo.result.Result;
 import com.iotexample.demo.service.DoctorService;
 import com.iotexample.demo.service.JianchaorderService;
 import com.iotexample.demo.service.JiuzhenService;
+import com.iotexample.demo.validator.NeedGuahao;
 import com.iotexample.demo.vo.JiuzhenVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -26,7 +24,7 @@ import javax.servlet.http.HttpSession;
  * @create: 2019-05-23 16:33
  **/
 
-@Controller
+@RestController
 @RequestMapping("/jiuzhen")
 public class JiuzhenController {
   @Autowired
@@ -54,8 +52,7 @@ public class JiuzhenController {
    * @Author: WenYuan
    * @Date: 2019/5/23
    */
-  @RequestMapping(value = "/first", method = RequestMethod.POST)
-  @ResponseBody
+  @PostMapping
   public Result<JiuzhenVo> first(@RequestBody JiuzhenVo jiuzhenVo) {
     long jiuzhenId = jiuzhenService.addJiuzhen(jiuzhenVo);
     int res2 = jianchaorderService.addAll(jiuzhenVo, jiuzhenId);
@@ -65,8 +62,8 @@ public class JiuzhenController {
     return Result.error(CodeMsg.DB_ERROR);
   }
 
-  @RequestMapping("/getDoctorName")
-  @ResponseBody
+  @GetMapping("/doctorName")
+  @NeedGuahao
   public Result<String> getDoctorName(HttpSession session) {
     Guahao guahao = (Guahao) session.getAttribute("guahao");
 

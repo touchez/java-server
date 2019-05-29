@@ -8,9 +8,7 @@ import com.iotexample.demo.service.JianchaorderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -21,7 +19,7 @@ import javax.servlet.http.HttpSession;
  * @create: 2019-05-23 17:36
  **/
 @RequestMapping("/jiancha")
-@Controller
+@RestController
 @Slf4j
 public class JianchaController {
   @Autowired
@@ -42,8 +40,7 @@ public class JianchaController {
   * @Author: WenYuan
   * @Date: 2019/5/23
   */
-  @RequestMapping("/ready")
-  @ResponseBody
+  @PostMapping
   public Result<Long> ready(HttpSession session, @RequestParam("jianchaId")long jianchaId) {
     Guahao guahao = (Guahao) session.getAttribute("guahao");
     //userId从session中获得，jianchaId从参数中获得（参数可以存在nfc标签中）
@@ -75,8 +72,7 @@ public class JianchaController {
   * @Author: WenYuan
   * @Date: 2019/5/23
   */
-  @RequestMapping("/checknext")
-  @ResponseBody
+  @PutMapping
   public Result<Long> checknext(@RequestParam("jianchaId")long jianchaId) {
     long jianchaorderId = jianchaorderService.checkNext(jianchaId);
 

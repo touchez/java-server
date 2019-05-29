@@ -5,9 +5,7 @@ import com.iotexample.demo.result.Result;
 import com.iotexample.demo.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,8 +15,8 @@ import java.util.List;
  * @author: WenYuan
  * @create: 2019-05-23 09:32
  **/
-@RequestMapping("/department")
-@Controller
+@RequestMapping("/departments")
+@RestController
 public class DepartmentController {
   @Autowired
   DepartmentService departmentService;
@@ -30,8 +28,7 @@ public class DepartmentController {
   * @Author: WenYuan
   * @Date: 2019/5/24 
   */
-  @RequestMapping("/all")
-  @ResponseBody
+  @GetMapping
   public Result<List<Department>> getAllDepartment() {
     List<Department> list = departmentService.listDepartment();
     return Result.success(list);
@@ -44,8 +41,7 @@ public class DepartmentController {
   * @Author: WenYuan
   * @Date: 2019/5/24 
   */
-  @RequestMapping("/{hospitalId}")
-  @ResponseBody
+  @GetMapping("/{hospitalId}")
   public Result<List<Department>> getAllDepartmentByHospitalId(@PathVariable("hospitalId")long hospitalId) {
     List<Department> list = departmentService.listDepartmentByHospitalId(hospitalId);
     return Result.success(list);
