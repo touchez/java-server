@@ -1,0 +1,3 @@
+INSERT INTO `iot`.`examinationorder`(`user_id`, `medicalRecord_id`, `examination_id`, `examination_type`) VALUES (1, 1, 1, 'exsanguinate');
+INSERT INTO `iot`.`examinationorder`(`user_id`, `medicalRecord_id`, `examination_id`, `examination_type`) VALUES (1, 1, 1, 'ct');
+INSERT INTO `iot`.`examinationorder`(`user_id`, `medicalRecord_id`, `examination_id`, `examination_type`) VALUES (1, 1, 1, 'xray');

@@ -20,6 +20,7 @@ public class JiuzhenVo {
   private Long jiuzhenId;
   private Long doctorId;
   private String doctorName;
+  private Long guahaoId;
   private Long userId;
   private Date createDate;
   private String jiuzhenContent;

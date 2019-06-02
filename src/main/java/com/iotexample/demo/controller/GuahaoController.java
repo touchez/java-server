@@ -86,10 +86,23 @@ public class GuahaoController {
     }
   }
 
-  @GetMapping
-  @NeedGuahao
-  public Result<List<Guahao>> getGuahao(@CookieValue(value = "token") String token) {
-    long userId = userService.getByToken(token);
+  /** 
+  * @Description: 获取用户的所有挂号
+  * @Param: [token] 
+  * @return: com.iotexample.demo.result.Result<java.util.List<com.iotexample.demo.model.Guahao>> 
+  * @Author: WenYuan
+  * @Date: 2019/5/29 
+  */
+  @GetMapping("/{userId}")
+  //@NeedGuahao
+  public Result<List<Guahao>> getGuahao(@CookieValue(value = "token", required = false) String token, @PathVariable("userId") String str) {
+    long userId = -1;
+    if (token != null) {
+      userId = userService.getByToken(token);
+    }
+    if (str != null) {
+      userId = Long.parseLong(str);
+    }
     List<Guahao> list = guahaoService.getGuahao(userId);
     return Result.success(list);
   }
@@ -103,14 +116,7 @@ public class GuahaoController {
   */
   @GetMapping("/order")
   @NeedGuahao
-  public Result<Long> getOrder(@CookieValue("token") String token,
-                       @RequestParam(value = "guahaoId", defaultValue = "-1")long guahaoId) {
-//    if (token == null) {
-//      return Result.error(CodeMsg.SESSION_ERROR);
-//    }
-
-    //Long userId = redisService.get(UserKey.token, token, Long.class);
-
+  public Result<Long> getOrder(@RequestParam(value = "guahaoId", defaultValue = "-1")long guahaoId) {
     long order = guahaoService.getOrderByGuahaoId(guahaoId);
     return Result.success(order);
   }

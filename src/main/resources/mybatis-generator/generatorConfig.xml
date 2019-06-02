@@ -60,29 +60,42 @@
             <property name="useActualColumnNames" value="false" />
             <generatedKey column="department_id" sqlStatement="Mysql" identity="true" />
         </table>
+        <table tableName="doctor" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+            <property name="useActualColumnNames" value="false" />
+            <generatedKey column="doctor_id" sqlStatement="Mysql" identity="true" />
+        </table>
         <table tableName="guahao" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
             <property name="useActualColumnNames" value="false" />
             <generatedKey column="guahao_id" sqlStatement="Mysql" identity="true" />
         </table>
-        <table tableName="jiancha" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+        <table tableName="exsanguinate" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
             <property name="useActualColumnNames" value="false" />
-            <generatedKey column="jiancha_id" sqlStatement="Mysql" identity="true" />
+            <generatedKey column="exsanguinate_id" sqlStatement="Mysql" identity="true" />
         </table>
-        <table tableName="jianchaOrder" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+        <table tableName="xray" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
             <property name="useActualColumnNames" value="false" />
-            <generatedKey column="jianchaOrder_id" sqlStatement="Mysql" identity="true" />
+            <generatedKey column="xray_id" sqlStatement="Mysql" identity="true" />
         </table>
-        <table tableName="report" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+
+        <table tableName="ct" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
             <property name="useActualColumnNames" value="false" />
-            <generatedKey column="report_id" sqlStatement="Mysql" identity="true" />
+            <generatedKey column="ct_id" sqlStatement="Mysql" identity="true" />
         </table>
-        <table tableName="jiuzhen" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+
+        <table tableName="examinationOrder" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
             <property name="useActualColumnNames" value="false" />
-            <generatedKey column="jiuzhen_id" sqlStatement="Mysql" identity="true" />
+            <generatedKey column="examinationOrder_id" sqlStatement="Mysql" identity="true" />
         </table>
-        <table tableName="doctor" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+
+        <table tableName="medicalRecord" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
             <property name="useActualColumnNames" value="false" />
-            <generatedKey column="doctor_id" sqlStatement="Mysql" identity="true" />
+            <generatedKey column="medicalRecord_id" sqlStatement="Mysql" identity="true" />
+            <!-- 需要把text类型覆盖为VARCHAR否则会取到null -->
+            <columnOverride column="symptom" jdbcType="VARCHAR" />
+            <columnOverride column="medicalRecord_content_first" jdbcType="VARCHAR" />
+            <columnOverride column="medicalRecord_content_finally" jdbcType="VARCHAR" />
+            <columnOverride column="treatment" jdbcType="VARCHAR" />
+            <columnOverride column="general" jdbcType="VARCHAR" />
         </table>
 
     </context>

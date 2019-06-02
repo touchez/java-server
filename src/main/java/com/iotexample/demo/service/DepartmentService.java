@@ -52,4 +52,8 @@ public class DepartmentService {
     return departmentName;
   }
 
+  public String getAddrByDepartmentId(Long departmentId) {
+    Department department = departmentMapper.selectByPrimaryKey(departmentId);
+    return department.getDepartmentAddr();
+  }
 }

@@ -1,0 +1,2 @@
+INSERT INTO `iot`.`ct`(`user_id`, `ct_time`, `ct_addr`, `ct_cost`, `ct_report`, `report_time`, `ct_img`, `ct_part`) VALUES (1, '2019-06-02 22:45:53', '和谐医院放射科', 233.00, '一切正常', '2019-06-04 22:46:22', 'http://img.com/img1', '头部');
+INSERT INTO `iot`.`ct`(`user_id`, `ct_time`, `ct_addr`, `ct_cost`, `ct_report`, `report_time`, `ct_img`, `ct_part`) VALUES (1, '2019-06-03 22:45:53', '和谐医院放射科', 2333.00, '一切正常', '2019-06-05 22:46:22', 'http://img.com/img1', '腿部');
