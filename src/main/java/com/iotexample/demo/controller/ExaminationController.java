@@ -7,10 +7,9 @@ import com.iotexample.demo.result.Result;
 import com.iotexample.demo.service.ExaminationOrderService;
 import com.iotexample.demo.service.ExaminationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @program: iotdemo
@@ -45,4 +44,18 @@ public class ExaminationController {
 
     return Result.success(json);
   }
+
+  /** 
+  * @Description: 根据userId和payState来返回所有的examination 
+  * @Param: [payState, userId] 
+  * @return: com.iotexample.demo.result.Result<java.util.List<com.iotexample.demo.model.Examinationorder>> 
+  * @Author: WenYuan
+  * @Date: 2019-06-04 
+  */
+  @GetMapping("/{userId}")
+  public Result<List<Examinationorder>> getAllExamination(@RequestParam("payState")int payState, @PathVariable("userId")long userId) {
+    List<Examinationorder> list = examinationOrderService.getExaminationOrderByUserIdAndPayState(userId, payState);
+    return Result.success(list);
+  }
+
 }

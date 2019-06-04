@@ -1,5 +1,6 @@
 package com.iotexample.demo.model;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -801,6 +802,66 @@ public class UserExample {
 
         public Criteria andSessionkeyNotBetween(String value1, String value2) {
             addCriterion("sessionkey not between", value1, value2, "sessionkey");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserBalanceIsNull() {
+            addCriterion("user_balance is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserBalanceIsNotNull() {
+            addCriterion("user_balance is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserBalanceEqualTo(BigDecimal value) {
+            addCriterion("user_balance =", value, "userBalance");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserBalanceNotEqualTo(BigDecimal value) {
+            addCriterion("user_balance <>", value, "userBalance");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserBalanceGreaterThan(BigDecimal value) {
+            addCriterion("user_balance >", value, "userBalance");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserBalanceGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("user_balance >=", value, "userBalance");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserBalanceLessThan(BigDecimal value) {
+            addCriterion("user_balance <", value, "userBalance");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserBalanceLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("user_balance <=", value, "userBalance");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserBalanceIn(List<BigDecimal> values) {
+            addCriterion("user_balance in", values, "userBalance");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserBalanceNotIn(List<BigDecimal> values) {
+            addCriterion("user_balance not in", values, "userBalance");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserBalanceBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("user_balance between", value1, value2, "userBalance");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserBalanceNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("user_balance not between", value1, value2, "userBalance");
             return (Criteria) this;
         }
     }

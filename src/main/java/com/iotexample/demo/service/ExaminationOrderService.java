@@ -35,4 +35,14 @@ public class ExaminationOrderService {
     Examinationorder examinationorder = examinationorderMapper.selectByPrimaryKey(examinationOrderId);
     return examinationorder;
   }
+
+  public List<Examinationorder> getExaminationOrderByUserIdAndPayState(long userId, int payState) {
+    ExaminationorderExample examinationorderExample = new ExaminationorderExample();
+    examinationorderExample.createCriteria()
+            .andUserIdEqualTo(userId)
+            .andPayStateEqualTo(payState);
+
+    List<Examinationorder> list = examinationorderMapper.selectByExample(examinationorderExample);
+    return list;
+  }
 }
