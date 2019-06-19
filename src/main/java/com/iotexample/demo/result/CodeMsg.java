@@ -14,6 +14,9 @@ public class CodeMsg {
   public static CodeMsg CHECK_ERROR = new CodeMsg(500400, "错误的检查地点");
   /**重复挂号*/
   public static CodeMsg DUPLICATE_ERROR = new CodeMsg(500500, "不能重复挂号");
+  /**支付失败*/
+  public static CodeMsg BALANCE_ERROR = new CodeMsg(500600, "支付失败，余额不足");
+  public static CodeMsg REPEAT_PAY_ERROR = new CodeMsg(500601, "支付失败，不能重复付款");
 
 
   private CodeMsg(int code, String msg) {

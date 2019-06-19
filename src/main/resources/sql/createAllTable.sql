@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS `user`(
     `uavatar` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '用户头像',
     `skey` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '用户登录态标识',
     `sessionkey` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '微信登录态标识',
+    `user_balance` DECIMAL(10,2) DEFAULT '0.00' COMMENT '用户余额',
     PRIMARY KEY ( `user_id` )
 )ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -36,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `guahao`(
 	`doctor_id` BIGINT(20) NOT NULL COMMENT '医生id' ,
     `create_date` DATETIME DEFAULT NULL COMMENT '挂号的时间' ,
     `end_date` DATETIME DEFAULT NULL COMMENT '自动结束的时间' ,
-    `state` INT(1) DEFAULT NULL COMMENT '是否有效' ,
+    `state` INT(1) DEFAULT 1 COMMENT '是否有效' ,
     PRIMARY KEY ( `guahao_id` ),
 	UNIQUE KEY `user_department` (`user_id`,`department_id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -96,6 +97,8 @@ CREATE TABLE IF NOT EXISTS `examinationOrder`(
 	`medicalRecord_id` BIGINT(20) NOT NULL COMMENT '病历id' ,
     `examination_id` BIGINT(20) NOT NULL COMMENT '某种检查的流水号' ,
     `examination_type` VARCHAR(100) DEFAULT NULL COMMENT '某种检查的类别' ,
+    `pay_state` INT(1) DEFAULT NULL COMMENT '是否付款，0表示未付款，1表示已付款' ,
+    `examination_cost` DECIMAL(10,2) DEFAULT '0.00' COMMENT '检验项目费用',
     PRIMARY KEY ( `examinationOrder_id` )
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -108,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `medicalRecord`(
     `symptom` longtext DEFAULT NULL COMMENT '症状描述' ,
     `medicalRecord_content_first` longtext DEFAULT NULL COMMENT '初步诊断内容' ,
     `medicalRecord_content_finally` longtext DEFAULT NULL COMMENT '最终诊断内容' ,
-    `treatment` longtext DEFAULT NULL COMMENT '治疗方式' ,
+#     `treatment` longtext DEFAULT NULL COMMENT '治疗方式' ,
     `general` longtext DEFAULT NULL COMMENT '概括' ,
     `create_date` DATETIME DEFAULT NULL COMMENT '创建时间' ,
     PRIMARY KEY ( `medicalRecord_id` )
@@ -126,3 +129,37 @@ CREATE TABLE IF NOT EXISTS `medicalRecord`(
 # 	`create_date` DATETIME DEFAULT NULL COMMENT '诊断时间' ,
 #     PRIMARY KEY ( `jiuzhen_id` )
 # )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+#治疗所需药品体现在治疗药品流水中
+CREATE TABLE IF NOT EXISTS `treatment`(
+    `treatment_id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '治疗id' ,
+    `user_id` BIGINT(20) NOT NULL COMMENT '患者id' ,
+    `treatment_cost` DECIMAL(10,2) DEFAULT '0.00' COMMENT '治疗费用',
+    `medicalRecord_id` BIGINT(20) NOT NULL COMMENT '病历id' ,
+    `pay_state` INT(1) DEFAULT NULL COMMENT '是否付款，0表示未付款，1表示已付款' ,
+    `create_date` DATETIME DEFAULT NULL COMMENT '创建时间' ,
+    PRIMARY KEY ( `treatment_id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `drug`(
+    `drug_id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '药品id' ,
+    `drug_type` VARCHAR(100) DEFAULT NULL COMMENT '药品的类别' ,
+    `drug_name` VARCHAR(100) DEFAULT NULL COMMENT '药品的名字' ,
+    `production_place` VARCHAR(100) DEFAULT NULL COMMENT '药品的产地' ,
+    `drug_price` DECIMAL(10,2) DEFAULT '0.00' COMMENT '药品单价',
+    `drug_stock` INT(10) DEFAULT NULL COMMENT '药品的库存数量' ,
+    `create_date` DATETIME DEFAULT NULL COMMENT '创建时间' ,
+    PRIMARY KEY ( `drug_id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `treatment_drug_order`(
+    `treatment_drug_order_id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '治疗药品流水id' ,
+    `drug_id` BIGINT(20) NOT NULL COMMENT '药品id' ,
+    `treatment_id` BIGINT(20) NOT NULL COMMENT '治疗id' ,
+    `instruct_days` INT(10) DEFAULT NULL COMMENT '服用天数' ,
+    `instruct_count_per_day` INT(10) DEFAULT NULL COMMENT '每天服用数量' ,
+    `drug_price` DECIMAL(10,2) DEFAULT '0.00' COMMENT '药品单价',
+    `drug_count` INT(10) DEFAULT NULL COMMENT '药品的数量' ,
+    `total_price` DECIMAL(10,2) DEFAULT '0.00' COMMENT '总价',
+    `create_date` DATETIME DEFAULT NULL COMMENT '创建时间' ,
+    PRIMARY KEY ( `treatment_drug_order_id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;

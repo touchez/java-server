@@ -1,5 +1,6 @@
 package com.iotexample.demo.service;
 
+import com.iotexample.demo.ResponseEntity.ResponseGuahaoWithOrder;
 import com.iotexample.demo.dao.GuahaoMapper;
 import com.iotexample.demo.model.Guahao;
 import com.iotexample.demo.model.GuahaoExample;
@@ -7,8 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * @program: iotdemo
@@ -28,13 +28,21 @@ public class GuahaoService {
 
   public Guahao guahao(long userId, long departmentId, long doctorId) {
     String departmentName = departmentService.getDepartmentNameById(departmentId);
+    Date now = new Date();
     Guahao guahao = new Guahao()
             .withUserId(userId)
             .withDepartmentId(departmentId)
             .withDepartmentName(departmentName)
             .withDoctorId(doctorId)
-            .withCreateDate(new Date());
-    guahaoMapper.insert(guahao);
+            .withCreateDate(now)
+            .withEndDate(new Date(now.getTime()+ 24 * 60 * 60 * 1000L))
+            .withState(1);
+//    log.info("before insert:{}", guahao);
+
+    guahaoMapper.insertSelective(guahao);
+
+//    log.info("after insert:{}", guahao);
+
     return guahao;
   }
 
@@ -73,5 +81,46 @@ public class GuahaoService {
     guahao.setEndDate(new Date());
     int res = guahaoMapper.updateByPrimaryKeySelective(guahao);
     return res;
+  }
+
+  /**
+  * @Description: 根据userId返回用户的所有active的挂号消息并且按order排序
+  * @Param: [userId]
+  * @return: java.util.List<com.iotexample.demo.model.Guahao>
+  * @Author: WenYuan
+  * @Date: 2019-06-04
+  */
+  public List<ResponseGuahaoWithOrder> getActiveGuahaoOrderByTime(long userId) {
+    GuahaoExample getExample = new GuahaoExample();
+    //state为1说明是active的
+    getExample.createCriteria()
+            .andUserIdEqualTo(userId)
+            .andStateEqualTo(1);
+
+    List<Guahao> list = guahaoMapper.selectByExample(getExample);
+
+    List<ResponseGuahaoWithOrder> list1 = new ArrayList<>();
+
+    for (Guahao guahao : list) {
+      ResponseGuahaoWithOrder e = new ResponseGuahaoWithOrder(guahao);
+      e.setOrder(getOrderByGuahaoId(guahao.getGuahaoId()));
+      list1.add(e);
+    }
+
+    //按照order(即前面剩余的人数)排序，升序
+    list1.sort(new Comparator<ResponseGuahaoWithOrder>() {
+      @Override
+      public int compare(ResponseGuahaoWithOrder o1, ResponseGuahaoWithOrder o2) {
+        int res = 0;
+        if (o1.getOrder() > o2.getOrder()) {
+          res = 1;
+        }else if (o1.getOrder() < o2.getOrder()) {
+          res = -1;
+        }
+        return res;
+      }
+    });
+
+    return list1;
   }
 }

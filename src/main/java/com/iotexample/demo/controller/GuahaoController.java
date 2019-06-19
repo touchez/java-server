@@ -1,5 +1,6 @@
 package com.iotexample.demo.controller;
 
+import com.iotexample.demo.ResponseEntity.ResponseGuahaoWithOrder;
 import com.iotexample.demo.model.Guahao;
 import com.iotexample.demo.myredis.GuahaoKey;
 import com.iotexample.demo.myredis.RedisService;
@@ -141,5 +142,18 @@ public class GuahaoController {
     cookie.setMaxAge(UserKey.token.expireSeconds());
     cookie.setPath("/");
     response.addCookie(cookie);
+  }
+
+  /**
+  * @Description: 根据userId返回用户的所有active的挂号消息并且按order排序
+  * @Param: [userId]
+  * @return: com.iotexample.demo.result.Result<java.util.List<com.iotexample.demo.ResponseEntity.ResponseGuahaoWithOrder>>
+  * @Author: WenYuan
+  * @Date: 2019-06-04
+  */
+  @GetMapping("/active")
+  public Result<List<ResponseGuahaoWithOrder>> getAllActive(@RequestParam("userId")long userId) {
+    List<ResponseGuahaoWithOrder> list = guahaoService.getActiveGuahaoOrderByTime(userId);
+    return Result.success(list);
   }
 }
