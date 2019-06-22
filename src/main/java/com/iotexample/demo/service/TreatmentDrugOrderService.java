@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -61,5 +62,22 @@ public class TreatmentDrugOrderService {
     }
 
     return resList;
+  }
+
+  public int updateTreatmentDrugOrder(List<TreatmentDrugOrder> treatmentDrugOrders, long treatmentId) {
+    for (TreatmentDrugOrder t : treatmentDrugOrders) {
+      if (t.getTreatmentId() == null) {
+        t.setTreatmentId(treatmentId);
+      }
+
+      if (t.getCreateDate() == null) {
+        t.setCreateDate(new Date());
+      }
+
+      int res = treatmentDrugOrderMapper.insertSelective(t);
+    }
+
+    return 0;
+
   }
 }

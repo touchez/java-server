@@ -58,6 +58,7 @@ public class GuahaoController {
   * @Date: 2019/5/23
   */
   @PostMapping
+  @CrossOrigin
   public Result<Guahao> guahao(HttpServletResponse response, @RequestBody GuahaoVo guahaoVo, @CookieValue(value = "token", required = false) String token) {
     long userId = guahaoVo.getUserId();
     long departmentId = guahaoVo.getDepartmentId();

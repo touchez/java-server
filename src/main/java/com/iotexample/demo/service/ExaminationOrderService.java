@@ -79,4 +79,25 @@ public class ExaminationOrderService {
     }
     return 0;
   }
+
+  public int updateExaminationOrder(List<Examinationorder> examinationorders, long medicalRecordId) {
+    if (examinationorders == null || examinationorders.size() == 0) {
+      return -1;
+    }
+
+    for (Examinationorder e : examinationorders) {
+      if (e.getMedicalrecordId() == null) {
+        e.setMedicalrecordId(medicalRecordId);
+      }
+
+      if (e.getPayState() == null) {
+        e.setPayState(0);
+      }
+
+      int res = examinationorderMapper.insertSelective(e);
+    }
+
+    return 0;
+
+  }
 }

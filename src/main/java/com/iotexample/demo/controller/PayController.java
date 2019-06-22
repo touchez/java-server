@@ -8,10 +8,7 @@ import com.iotexample.demo.result.Result;
 import com.iotexample.demo.service.PayService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -30,6 +27,7 @@ public class PayController {
   * @Date: 2019-06-04 
   */
   @PostMapping("/examinationOrder")
+  @CrossOrigin
   public Result<String> payExamination(@Valid @RequestBody RequestPayExamination requestPayExamination) {
     log.info("request body:{}", JSON.toJSON(requestPayExamination));
     long userId = requestPayExamination.getUserId();
@@ -54,6 +52,7 @@ public class PayController {
   * @Date: 2019-06-04
   */
   @PostMapping("/treatment")
+  @CrossOrigin
   public Result<String> payTreatment(@Valid @RequestBody RequestPayTreatment requestPayTreatment) {
     log.info("request body:{}", JSON.toJSON(requestPayTreatment));
     long userId = requestPayTreatment.getUserId();

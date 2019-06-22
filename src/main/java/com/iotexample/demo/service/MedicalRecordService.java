@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -63,5 +64,27 @@ public class MedicalRecordService {
     }
 
     return list;
+  }
+
+  //返回主键值
+  public long updateMedicalRecord(Medicalrecord medicalrecord) {
+
+    long medicalRecordId = 0;
+
+    if (medicalrecord.getMedicalrecordId() == null) {
+      //第一次获得病历，没有设置id
+      if (medicalrecord.getCreateDate() == null) {
+        medicalrecord.setCreateDate(new Date());
+      }
+
+      int res = medicalrecordMapper.insertSelective(medicalrecord);
+    }else {
+      //有id则一定在数据库中，故更新
+      int res = medicalrecordMapper.updateByPrimaryKeySelective(medicalrecord);
+    }
+
+    medicalRecordId = medicalrecord.getMedicalrecordId();
+
+    return medicalRecordId;
   }
 }
