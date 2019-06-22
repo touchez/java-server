@@ -41,3 +41,16 @@ $ docker exec -it mongodb mongo admin
 #读取db.collection.find()
 > db.foo.find()
 ```
+搭建zookeeper:
+
+> http://huangxubo.me/blog/zookeeper/zookeeper-docker-cluster/
+
+有个地方报错了，通过`docker network ls`找到正确的network的名称：
+```shell
+docker run -it --rm \
+        --link zoo1:zk1 \
+        --link zoo2:zk2 \
+        --link zoo3:zk3 \
+        --net zk_cluster_default \
+        zookeeper zkCli.sh -server zk1:2181,zk2:2181,zk3:2181
+```

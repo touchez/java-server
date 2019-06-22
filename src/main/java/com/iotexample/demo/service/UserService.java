@@ -15,7 +15,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import sun.rmi.runtime.Log;
 
 import java.util.HashMap;
 import java.util.List;

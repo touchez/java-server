@@ -2,7 +2,9 @@ package com.iotexample.demo.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.iotexample.demo.RequestEntity.RequestAddExaminationOrder;
 import com.iotexample.demo.model.Examinationorder;
+import com.iotexample.demo.result.CodeMsg;
 import com.iotexample.demo.result.Result;
 import com.iotexample.demo.service.ExaminationOrderService;
 import com.iotexample.demo.service.ExaminationService;
@@ -35,12 +37,12 @@ public class ExaminationController {
   * @Date: 2019/6/2 
   */
   @GetMapping
-  public Result<JSON> getExamination(@RequestParam("examinationOrderId") long examinationOrderId) {
+  public Result<JSONObject> getExamination(@RequestParam("examinationOrderId") long examinationOrderId) {
     Examinationorder examinationorder = examinationOrderService.getExaminationOrderById(examinationOrderId);
     long examinationId = examinationorder.getExaminationId();
     String examinationType = examinationorder.getExaminationType();
 
-    JSON json = examinationService.getExaminationByTypeAndId(examinationId, examinationType);
+    JSONObject json = examinationService.getExaminationByTypeAndId(examinationId, examinationType);
 
     return Result.success(json);
   }
@@ -58,4 +60,32 @@ public class ExaminationController {
     return Result.success(list);
   }
 
+  /**
+  * @Description: 获取所有检查的项目
+  * @Param: []
+  * @return: com.iotexample.demo.result.Result<com.alibaba.fastjson.JSON>
+  * @Author: WenYuan
+  * @Date: 2019/6/21
+  */
+  @GetMapping("/all")
+  public Result<JSON> getAllExamination() {
+    JSON str = examinationService.getAllExamination();
+    return Result.success(str);
+  }
+
+  /** 
+  * @Description: 增加examinationOrder记录 
+  * @Param: [requestAddExaminationOrders] 
+  * @return: com.iotexample.demo.result.Result<java.lang.String> 
+  * @Author: WenYuan
+  * @Date: 2019/6/21 
+  */
+  @PostMapping("/add")
+  public Result<String> addExaminationOrder(@RequestBody RequestAddExaminationOrder[] requestAddExaminationOrders) {
+    int res = examinationOrderService.addAllExamination(requestAddExaminationOrders);
+    if (res == 0) {
+      return Result.success("success");
+    }
+    return Result.error(CodeMsg.SERVER_ERROR);
+  }
 }

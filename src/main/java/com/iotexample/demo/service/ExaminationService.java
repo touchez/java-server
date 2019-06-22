@@ -5,9 +5,14 @@ import com.alibaba.fastjson.JSONObject;
 import com.iotexample.demo.dao.CtMapper;
 import com.iotexample.demo.dao.ExsanguinateMapper;
 import com.iotexample.demo.dao.XrayMapper;
+import com.iotexample.demo.model.*;
 import lombok.extern.slf4j.Slf4j;
+import org.omg.PortableServer.LIFESPAN_POLICY_ID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * @program: iotdemo
@@ -27,8 +32,8 @@ public class ExaminationService {
   @Autowired
   ExsanguinateMapper exsanguinateMapper;
 
-  public JSON getExaminationByTypeAndId(long examinationId, String examinationType) {
-    JSON json = null;
+  public JSONObject getExaminationByTypeAndId(long examinationId, String examinationType) {
+    JSONObject json = null;
     switch (examinationType) {
       case "xray":
         json = (JSONObject) JSON.toJSON(xrayMapper.selectByPrimaryKey(examinationId));
@@ -43,4 +48,32 @@ public class ExaminationService {
     }
     return json;
   }
+
+  public JSON getAllExamination() {
+
+    HashMap<String, Object> map = new HashMap<>();
+
+
+    XrayExample xrayExample = new XrayExample();
+    xrayExample.createCriteria();
+    List<Xray> xrayList = xrayMapper.selectByExample(xrayExample);
+
+    CtExample ctExample = new CtExample();
+    ctExample.createCriteria();
+    List<Ct> ctList = ctMapper.selectByExample(ctExample);
+
+    ExsanguinateExample exsanguinateExample = new ExsanguinateExample();
+    exsanguinateExample.createCriteria();
+    List<Exsanguinate> exsanguinateList = exsanguinateMapper.selectByExample(exsanguinateExample);
+
+    map.put("xray", xrayList);
+    map.put("ct", ctList);
+    map.put("exsanguinate", exsanguinateList);
+
+    String str = JSON.toJSONString(map);
+    JSON json = JSON.parseObject(str);
+
+    return json;
+  }
+
 }

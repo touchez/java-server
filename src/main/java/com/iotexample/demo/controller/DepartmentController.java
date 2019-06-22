@@ -42,6 +42,7 @@ public class DepartmentController {
   * @Date: 2019/5/24 
   */
   @GetMapping("/{hospitalId}")
+  @CrossOrigin
   public Result<List<Department>> getAllDepartmentByHospitalId(@PathVariable("hospitalId")long hospitalId) {
     List<Department> list = departmentService.listDepartmentByHospitalId(hospitalId);
     return Result.success(list);
