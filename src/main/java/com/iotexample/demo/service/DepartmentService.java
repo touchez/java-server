@@ -56,4 +56,9 @@ public class DepartmentService {
     Department department = departmentMapper.selectByPrimaryKey(departmentId);
     return department.getDepartmentAddr();
   }
+
+  public String getHospitalNameByDepartmentId(Long departmentId) {
+    Department department = departmentMapper.selectByPrimaryKey(departmentId);
+    return department.getHospitalName();
+  }
 }

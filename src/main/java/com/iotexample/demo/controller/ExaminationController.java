@@ -37,6 +37,7 @@ public class ExaminationController {
   * @Date: 2019/6/2 
   */
   @GetMapping
+  @CrossOrigin
   public Result<JSONObject> getExamination(@RequestParam("examinationOrderId") long examinationOrderId) {
     Examinationorder examinationorder = examinationOrderService.getExaminationOrderById(examinationOrderId);
     long examinationId = examinationorder.getExaminationId();
@@ -68,6 +69,7 @@ public class ExaminationController {
   * @Date: 2019/6/21
   */
   @GetMapping("/all")
+  @CrossOrigin
   public Result<JSON> getAllExamination() {
     JSON str = examinationService.getAllExamination();
     return Result.success(str);
@@ -81,6 +83,7 @@ public class ExaminationController {
   * @Date: 2019/6/21 
   */
   @PostMapping("/add")
+  @CrossOrigin
   public Result<String> addExaminationOrder(@RequestBody RequestAddExaminationOrder[] requestAddExaminationOrders) {
     int res = examinationOrderService.addAllExamination(requestAddExaminationOrders);
     if (res == 0) {

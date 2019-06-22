@@ -20,12 +20,14 @@ import java.util.Date;
 public class ResponseMedicalRecord {
   private Date date;
   private String addr;
+  private String hospitalName;
   private String generalName;
   private long medicalRecordId;
 
-  public ResponseMedicalRecord(Medicalrecord medicalrecord, String addr) {
+  public ResponseMedicalRecord(Medicalrecord medicalrecord, String addr, String hospitalName) {
     this.date = medicalrecord.getCreateDate();
     this.addr = addr;
+    this.hospitalName = hospitalName;
     this.generalName = medicalrecord.getGeneral();
     log.info("general is:{}",generalName);
     this.medicalRecordId = medicalrecord.getMedicalrecordId();

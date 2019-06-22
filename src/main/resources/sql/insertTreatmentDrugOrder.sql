@@ -1,0 +1,1 @@
+INSERT INTO `iot`.`treatment_drug_order`(`drug_id`, `treatment_id`, `instruct_days`, `instruct_count_per_day`, `drug_price`, `drug_count`, `total_price`, `create_date`) VALUES (1, 1, 10, 2, 66.60, 10, 666.00, '2019-06-22 17:16:57');
