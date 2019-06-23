@@ -42,4 +42,13 @@ public class TreatmentService {
 
     return treatmentId;
   }
+
+  public int updateTreatment(long treatmentId, BigDecimal allCost) {
+    Treatment treatment = treatmentMapper.selectByPrimaryKey(treatmentId);
+
+    treatment.setTreatmentCost(allCost);
+
+    int res = treatmentMapper.updateByPrimaryKeySelective(treatment);
+    return res;
+  }
 }

@@ -154,19 +154,28 @@ public class MedicalRecordController {
 
     BigDecimal allCost = new BigDecimal(0);
 
-    for (TreatmentDrugOrder t : treatmentDrugOrders) {
-      allCost = allCost.add(t.getTotalPrice());
+    long treatmentId = -1;
+
+    if (treatmentDrugOrders != null) {
+      for (TreatmentDrugOrder t : treatmentDrugOrders) {
+        allCost = allCost.add(t.getTotalPrice());
+        if (t.getTreatmentId() != null) {
+          treatmentId = t.getTreatmentId();
+        }
+      }
     }
 
+
+
     if (treatmentDrugOrders != null && treatmentDrugOrders.size() != 0) {
-      long treatmentId = 0;
-
-
-
-      if (treatmentDrugOrders.get(0).getTreatmentId() == null) {
-        log.info("treatmentId is " + treatmentDrugOrders.get(0).getTreatmentId());
+      if (treatmentId == -1) {
+        log.info("treatmentId is " + treatmentId);
         treatmentId = treatmentService.insertTreatment(medicalrecord.getUserId(), allCost, medicalRecordId);
         int res = treatmentDrugOrderService.updateTreatmentDrugOrder(treatmentDrugOrders, treatmentId);
+      }else {
+        log.info("treatmentId is " + treatmentId);
+        int res = treatmentService.updateTreatment(treatmentId, allCost);
+        int res1 = treatmentDrugOrderService.updateTreatmentDrugOrder(treatmentDrugOrders, treatmentId);
       }
 
     }
