@@ -97,6 +97,7 @@ CREATE TABLE IF NOT EXISTS `examinationOrder`(
 	`medicalRecord_id` BIGINT(20) NOT NULL COMMENT '病历id' ,
     `examination_id` BIGINT(20) NOT NULL COMMENT '某种检查的流水号' ,
     `examination_type` VARCHAR(100) DEFAULT NULL COMMENT '某种检查的类别' ,
+    `examination_type_id` BIGINT(20) DEFAULT NULL COMMENT '检查类型的id' ,
     `pay_state` INT(1) DEFAULT NULL COMMENT '是否付款，0表示未付款，1表示已付款' ,
     `examination_cost` DECIMAL(10,2) DEFAULT '0.00' COMMENT '检验项目费用',
     PRIMARY KEY ( `examinationOrder_id` )
@@ -154,6 +155,7 @@ CREATE TABLE IF NOT EXISTS `drug`(
 CREATE TABLE IF NOT EXISTS `treatment_drug_order`(
     `treatment_drug_order_id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '治疗药品流水id' ,
     `drug_id` BIGINT(20) NOT NULL COMMENT '药品id' ,
+    `drug_name` VARCHAR(100) DEFAULT NULL COMMENT '药品的名字' ,
     `treatment_id` BIGINT(20) NOT NULL COMMENT '治疗id' ,
     `instruct_days` INT(10) DEFAULT NULL COMMENT '服用天数' ,
     `instruct_count_per_day` INT(10) DEFAULT NULL COMMENT '每天服用数量' ,
@@ -162,4 +164,13 @@ CREATE TABLE IF NOT EXISTS `treatment_drug_order`(
     `total_price` DECIMAL(10,2) DEFAULT '0.00' COMMENT '总价',
     `create_date` DATETIME DEFAULT NULL COMMENT '创建时间' ,
     PRIMARY KEY ( `treatment_drug_order_id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `examination_type`(
+    `examination_type_id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '检查类型的id' ,
+    `examination_type_name` VARCHAR(100) DEFAULT NULL COMMENT '检查类型的名字' ,
+    `examination_type_detail` VARCHAR(100) DEFAULT NULL COMMENT '检查类型的详细内容，比如部位',
+    `examination_addr` VARCHAR(100) DEFAULT NULL COMMENT '检验地址' ,
+    `examination_cost` DECIMAL(10,2) DEFAULT '0.00' COMMENT '检验项目费用',
+    PRIMARY KEY ( `examination_type_id` )
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;

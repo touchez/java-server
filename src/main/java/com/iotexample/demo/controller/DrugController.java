@@ -4,6 +4,7 @@ import com.iotexample.demo.model.Drug;
 import com.iotexample.demo.result.Result;
 import com.iotexample.demo.service.DrugService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,6 +33,7 @@ public class DrugController {
   * @Date: 2019/6/22 
   */
   @GetMapping("/all")
+  @CrossOrigin
   public Result<List<Drug>> getAllDrugs() {
     List<Drug> list = drugService.getAllDrugs();
     

@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 /**
  * @program: iotdemo
- * @description:
+ * @description: 简单显示过往病例的类
  * @author: WenYuan
  * @create: 2019-06-22 16:55
  */
@@ -18,4 +20,5 @@ public class SimpleMedicalRecord {
   String generalName;
   String departmentName;
   String hospitalName;
+  //Date createDate;
 }

@@ -76,6 +76,51 @@ public class ExaminationService {
     return json;
   }
 
+  //返回主键的值
+  public long insertExamnaitons(ExaminationType examinationType, Long userId) {
+    String type = examinationType.getExaminationTypeName();
 
+    long examinationId = 0;
 
+    switch (type) {
+      case "ct":
+        Ct ct = new Ct()
+                .withCtAddr(examinationType.getExaminationAddr())
+                .withCtCost(examinationType.getExaminationCost())
+                .withCtPart(examinationType.getExaminationTypeDetail())
+                .withUserId(userId);
+
+        int res = ctMapper.insertSelective(ct);
+
+        examinationId = ct.getCtId();
+        break;
+      case "xray":
+        Xray xray = new Xray()
+                .withXrayAddr(examinationType.getExaminationAddr())
+                .withXrayCost(examinationType.getExaminationCost())
+                .withXrayPart(examinationType.getExaminationTypeDetail())
+                .withUserId(userId);
+
+        int res1 = xrayMapper.insertSelective(xray);
+
+        examinationId = xray.getXrayId();
+        break;
+      case "exsanguinate":
+        Exsanguinate exsanguinate = new Exsanguinate()
+                .withExsanguinateAddr(examinationType.getExaminationAddr())
+                .withExsanguinateCost(examinationType.getExaminationCost())
+                .withUserId(userId);
+
+        int res2 = exsanguinateMapper.insertSelective(exsanguinate);
+
+        examinationId = exsanguinate.getExsanguinateId();
+        break;
+
+      default:
+        log.info("error type");
+        break;
+    }
+
+    return examinationId;
+  }
 }

@@ -316,6 +316,76 @@ public class TreatmentDrugOrderExample {
             return (Criteria) this;
         }
 
+        public Criteria andDrugNameIsNull() {
+            addCriterion("drug_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDrugNameIsNotNull() {
+            addCriterion("drug_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDrugNameEqualTo(String value) {
+            addCriterion("drug_name =", value, "drugName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDrugNameNotEqualTo(String value) {
+            addCriterion("drug_name <>", value, "drugName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDrugNameGreaterThan(String value) {
+            addCriterion("drug_name >", value, "drugName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDrugNameGreaterThanOrEqualTo(String value) {
+            addCriterion("drug_name >=", value, "drugName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDrugNameLessThan(String value) {
+            addCriterion("drug_name <", value, "drugName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDrugNameLessThanOrEqualTo(String value) {
+            addCriterion("drug_name <=", value, "drugName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDrugNameLike(String value) {
+            addCriterion("drug_name like", value, "drugName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDrugNameNotLike(String value) {
+            addCriterion("drug_name not like", value, "drugName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDrugNameIn(List<String> values) {
+            addCriterion("drug_name in", values, "drugName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDrugNameNotIn(List<String> values) {
+            addCriterion("drug_name not in", values, "drugName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDrugNameBetween(String value1, String value2) {
+            addCriterion("drug_name between", value1, value2, "drugName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDrugNameNotBetween(String value1, String value2) {
+            addCriterion("drug_name not between", value1, value2, "drugName");
+            return (Criteria) this;
+        }
+
         public Criteria andTreatmentIdIsNull() {
             addCriterion("treatment_id is null");
             return (Criteria) this;

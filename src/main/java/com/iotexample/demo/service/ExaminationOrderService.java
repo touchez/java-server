@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.iotexample.demo.RequestEntity.RequestAddExaminationOrder;
 import com.iotexample.demo.dao.ExaminationorderMapper;
 import com.iotexample.demo.exception.GlobalException;
+import com.iotexample.demo.model.ExaminationType;
 import com.iotexample.demo.model.Examinationorder;
 import com.iotexample.demo.model.ExaminationorderExample;
 import com.iotexample.demo.result.CodeMsg;
@@ -98,6 +99,25 @@ public class ExaminationOrderService {
     }
 
     return 0;
+
+  }
+
+
+  public int updateExaminationOrder(ExaminationType examinationType, long userId, long medicalRecordId, long examinationId, long exminationTypeId) {
+
+    Examinationorder examinationorder = new Examinationorder()
+            .withExaminationCost(examinationType.getExaminationCost())
+            .withExaminationId(examinationId)
+            .withExaminationType(examinationType.getExaminationTypeName())
+            .withPayState(0)
+            .withUserId(userId)
+            .withExaminationTypeId(exminationTypeId)
+            .withMedicalrecordId(medicalRecordId);
+
+    int res = examinationorderMapper.insertSelective(examinationorder);
+
+
+    return res;
 
   }
 }

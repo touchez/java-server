@@ -1,7 +1,11 @@
 package com.iotexample.demo.controller;
 
+import com.iotexample.demo.RequestEntity.RequestMedicalRecord;
 import com.iotexample.demo.ResponseEntity.ResponseMedicalRecord;
+import com.iotexample.demo.ResponseEntity.ResponseMedicalRecord1;
 import com.iotexample.demo.ResponseEntity.ResponseMedicalRecord2;
+import com.iotexample.demo.ResponseEntity.ResponseSimpleExaminationType;
+import com.iotexample.demo.model.ExaminationType;
 import com.iotexample.demo.model.Examinationorder;
 import com.iotexample.demo.model.Medicalrecord;
 import com.iotexample.demo.model.TreatmentDrugOrder;
@@ -42,6 +46,12 @@ public class MedicalRecordController {
   @Autowired
   TreatmentService treatmentService;
 
+  @Autowired
+  ExaminationTypeService examinationTypeService;
+
+  @Autowired
+  ExaminationService examinationService;
+
   /** 
   * @Description: 根据userId获取用户的所以病历
   * @Param: [userId] 
@@ -77,6 +87,14 @@ public class MedicalRecordController {
     return Result.success(new ResponseMedicalRecord2(medicalrecord, list));
   }
 
+  @GetMapping("/lastRecord")
+  @CrossOrigin
+  public Result<List<SimpleMedicalRecord>> getLastRecordByUserId(@RequestParam("userId") long userId) {
+    List<SimpleMedicalRecord> list3 = medicalRecordService.getSimpleMedicalRecordByUserId(userId);
+
+    return Result.success(list3);
+  }
+
   /**
   * @Description: 根据medicalRecordId来返回一串web页面所需的信息
   * @Param: [medicalRecordId]
@@ -86,44 +104,53 @@ public class MedicalRecordController {
   */
   @GetMapping("/web")
   @CrossOrigin
-  public Result<MedicalRecordVo> getWebStyleMedicalRecord(@RequestParam("medicalRecordId") long medicalRecordId) {
+  public Result<ResponseMedicalRecord1> getWebStyleMedicalRecord(@RequestParam("medicalRecordId") long medicalRecordId) {
 
     // TODO 串行访问数据库导致速度较慢，可以通过使用多线程的方式来并行访问这几张表来提高速度
+
+    log.info("medicalRecordId is " + medicalRecordId);
 
 
     Medicalrecord medicalrecord = medicalRecordService.getMedicalRecordById(medicalRecordId);
 
-    List<Examinationorder> list1 = examinationOrderService.getAllExaminationOrderByMedicalRecordId(medicalRecordId);
+    List<ResponseSimpleExaminationType> list1 = examinationTypeService.getAllExaminationTypeByMedicalRecordId(medicalRecordId);
 
     List<TreatmentDrugOrder> list2 = treatmentDrugOrderService.getAllTreatmentDrugOrderByMedicalRecordId(medicalRecordId);
 
     List<SimpleMedicalRecord> list3 = medicalRecordService.getSimpleMedicalRecordByUserId(medicalrecord.getUserId());
 
-    MedicalRecordVo medicalRecordVo = new MedicalRecordVo(medicalrecord, list1, list2, list3);
+    ResponseMedicalRecord1 responseMedicalRecord1 = new ResponseMedicalRecord1(medicalrecord, list1, list2, list3);
 
-    return Result.success(medicalRecordVo);
+    return Result.success(responseMedicalRecord1);
   }
 
   @PostMapping("/web/post")
   @CrossOrigin
-  public Result<Long> updateDBByPostData(@RequestBody MedicalRecordVo medicalRecordVo) {
+  public Result<Long> updateDBByPostData(@RequestBody RequestMedicalRecord requestMedicalRecord) {
     //TODO 同理可以多线程加速
 
-    Medicalrecord medicalrecord = medicalRecordVo.getMedicalrecord();
+    Medicalrecord medicalrecord = requestMedicalRecord.getMedicalrecord();
 
     long medicalRecordId = 0;
+    long userId = 0;
 
     if (medicalrecord != null) {
       medicalRecordId = medicalRecordService.updateMedicalRecord(medicalrecord);
+      userId = medicalrecord.getUserId();
     }
 
-    List<Examinationorder> examinationorders = medicalRecordVo.getExaminationorders();
+    List<ExaminationType> examinationTypes = examinationTypeService.getExaminationTypesByIds(requestMedicalRecord.getExaminationTypesId());
 
-    if (examinationorders != null) {
-      int res2 = examinationOrderService.updateExaminationOrder(examinationorders, medicalRecordId);
+    if (examinationTypes != null) {
+      //TODO 先插入到对应的子项目表中，再插入到收费的总表
+      for (ExaminationType e : examinationTypes) {
+        long examinationId = examinationService.insertExamnaitons(e, userId);
+        int res2 = examinationOrderService.updateExaminationOrder(e, userId, medicalRecordId, examinationId, e.getExaminationTypeId());
+      }
+
     }
 
-    List<TreatmentDrugOrder> treatmentDrugOrders = medicalRecordVo.getTreatmentDrugOrders();
+    List<TreatmentDrugOrder> treatmentDrugOrders = requestMedicalRecord.getTreatmentDrugOrders();
 
     BigDecimal allCost = new BigDecimal(0);
 

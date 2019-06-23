@@ -1,5 +1,6 @@
 package com.iotexample.demo.vo;
 
+import com.iotexample.demo.RequestEntity.RequestMedicalRecord;
 import com.iotexample.demo.model.Examinationorder;
 import com.iotexample.demo.model.Medicalrecord;
 import com.iotexample.demo.model.TreatmentDrugOrder;
@@ -22,7 +23,7 @@ import java.util.List;
 @AllArgsConstructor
 public class MedicalRecordVo {
   private Medicalrecord medicalrecord;
-  private List<Examinationorder> examinationorders;
+  private List<RequestMedicalRecord> requestMedicalRecords;
   private List<TreatmentDrugOrder> treatmentDrugOrders;
   private List<SimpleMedicalRecord> simpleMedicalRecords;
 

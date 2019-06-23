@@ -113,6 +113,11 @@
             <generatedKey column="treatment_drug_order_id" sqlStatement="Mysql" identity="true" />
         </table>
 
+        <table tableName="examination_type" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+            <property name="useActualColumnNames" value="false" />
+            <generatedKey column="examination_type_id" sqlStatement="Mysql" identity="true" />
+        </table>
+
 
     </context>
 </generatorConfiguration>

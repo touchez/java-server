@@ -505,6 +505,66 @@ public class ExaminationorderExample {
             return (Criteria) this;
         }
 
+        public Criteria andExaminationTypeIdIsNull() {
+            addCriterion("examination_type_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andExaminationTypeIdIsNotNull() {
+            addCriterion("examination_type_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andExaminationTypeIdEqualTo(Long value) {
+            addCriterion("examination_type_id =", value, "examinationTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExaminationTypeIdNotEqualTo(Long value) {
+            addCriterion("examination_type_id <>", value, "examinationTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExaminationTypeIdGreaterThan(Long value) {
+            addCriterion("examination_type_id >", value, "examinationTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExaminationTypeIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("examination_type_id >=", value, "examinationTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExaminationTypeIdLessThan(Long value) {
+            addCriterion("examination_type_id <", value, "examinationTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExaminationTypeIdLessThanOrEqualTo(Long value) {
+            addCriterion("examination_type_id <=", value, "examinationTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExaminationTypeIdIn(List<Long> values) {
+            addCriterion("examination_type_id in", values, "examinationTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExaminationTypeIdNotIn(List<Long> values) {
+            addCriterion("examination_type_id not in", values, "examinationTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExaminationTypeIdBetween(Long value1, Long value2) {
+            addCriterion("examination_type_id between", value1, value2, "examinationTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExaminationTypeIdNotBetween(Long value1, Long value2) {
+            addCriterion("examination_type_id not between", value1, value2, "examinationTypeId");
+            return (Criteria) this;
+        }
+
         public Criteria andPayStateIsNull() {
             addCriterion("pay_state is null");
             return (Criteria) this;
