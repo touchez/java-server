@@ -54,3 +54,7 @@ docker run -it --rm \
         --net zk_cluster_default \
         zookeeper zkCli.sh -server zk1:2181,zk2:2181,zk3:2181
 ```
+
+阿里云的mysql rds修改时区，mybatis获取的数据的时间是根据Mysql里面设置的时区定的，所以要更改时区设置让其显示正常的时间。
+
+![Snipaste_2019-06-29_18-25-37.png](https://i.loli.net/2019/06/29/5d173cab3adb480177.png)

@@ -27,6 +27,7 @@ public class WebConfig implements WebMvcConfigurer {
     FastJsonConfig config = new FastJsonConfig();
     //自定义日期序列化格式
     config.setDateFormat("yyyy-MM-dd HH:mm:ss");
+
     converter.setFastJsonConfig(config);
     converters.add(0, converter);
   }

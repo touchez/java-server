@@ -3,14 +3,19 @@ package com.iotexample.demo.controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.iotexample.demo.RequestEntity.RequestAddExaminationOrder;
+import com.iotexample.demo.ResponseEntity.ResponseSimpleExaminationTypeWithAddr;
 import com.iotexample.demo.model.Examinationorder;
 import com.iotexample.demo.result.CodeMsg;
 import com.iotexample.demo.result.Result;
 import com.iotexample.demo.service.ExaminationOrderService;
 import com.iotexample.demo.service.ExaminationService;
+import com.iotexample.demo.service.ExaminationTypeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,12 +27,16 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/examination")
+@Slf4j
 public class ExaminationController {
   @Autowired
   ExaminationOrderService examinationOrderService;
 
   @Autowired
   ExaminationService examinationService;
+
+  @Autowired
+  ExaminationTypeService examinationTypeService;
 
   /** 
   * @Description: 根据examinationOrderId获得详细的检查信息 
@@ -90,5 +99,13 @@ public class ExaminationController {
       return Result.success("success");
     }
     return Result.error(CodeMsg.SERVER_ERROR);
+  }
+
+  @GetMapping("/simple")
+  @CrossOrigin
+  public Result<List<ResponseSimpleExaminationTypeWithAddr>> getSimpleExaminationByUserIdAndDate(@RequestParam("userId") long userId, @DateTimeFormat(pattern = "yyyy-MM-dd") @RequestParam("date")Date date) {
+    List<ResponseSimpleExaminationTypeWithAddr> list = examinationTypeService.getAllExaminationTypeByUserIdAndDate(userId, date);
+
+    return Result.success(list);
   }
 }

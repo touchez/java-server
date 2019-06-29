@@ -2,8 +2,10 @@ package com.iotexample.demo.service;
 
 import com.iotexample.demo.ResponseEntity.ResponseGuahaoWithOrder;
 import com.iotexample.demo.dao.GuahaoMapper;
+import com.iotexample.demo.exception.GlobalException;
 import com.iotexample.demo.model.Guahao;
 import com.iotexample.demo.model.GuahaoExample;
+import com.iotexample.demo.result.CodeMsg;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,7 +54,8 @@ public class GuahaoService {
     GuahaoExample getExample = new GuahaoExample();
     getExample.createCriteria()
             .andCreateDateLessThan(guahao.getCreateDate())
-            .andDepartmentIdEqualTo(guahao.getDepartmentId());
+            .andDepartmentIdEqualTo(guahao.getDepartmentId())
+            .andStateEqualTo(1);
 
     long order = guahaoMapper.countByExample(getExample);
 
@@ -122,5 +125,25 @@ public class GuahaoService {
     });
 
     return list1;
+  }
+
+  public ResponseGuahaoWithOrder getGuahaoDetail(long userId, long departmentId) {
+    GuahaoExample guahaoExample = new GuahaoExample();
+    guahaoExample.createCriteria()
+            .andUserIdEqualTo(userId)
+            .andDepartmentIdEqualTo(departmentId);
+
+    List<Guahao> list = guahaoMapper.selectByExample(guahaoExample);
+
+    if (list.size() != 1) {
+      throw new GlobalException(CodeMsg.DB_ERROR);
+    }
+
+    Guahao guahao = list.get(0);
+
+    ResponseGuahaoWithOrder e = new ResponseGuahaoWithOrder(guahao);
+    e.setOrder(getOrderByGuahaoId(guahao.getGuahaoId()));
+
+    return e;
   }
 }
