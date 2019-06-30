@@ -1530,3 +1530,432 @@ Action:
 Verify the connector's configuration, identify and stop any process that's listening on port 8091, or configure this application to listen on another port.
 
 2019-06-30 15:52:23.899  INFO 1314 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-06-30 16:22:25.056  INFO 2641 --- [main] com.iotexample.demo.DemoApplication      : Starting DemoApplication on wuwydeAir.lan with PID 2641 (/Users/wuwy/IdeaProjects/iotdemo/target/classes started by wuwy in /Users/wuwy/IdeaProjects/iotdemo)
+2019-06-30 16:22:25.063  INFO 2641 --- [main] com.iotexample.demo.DemoApplication      : The following profiles are active: test
+2019-06-30 16:22:26.012  INFO 2641 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-30 16:22:26.013  INFO 2641 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-30 16:22:26.035  INFO 2641 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17ms. Found 0 repository interfaces.
+2019-06-30 16:22:26.042  INFO 2641 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-30 16:22:26.043  INFO 2641 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-30 16:22:26.058  INFO 2641 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10ms. Found 0 repository interfaces.
+2019-06-30 16:22:26.414  INFO 2641 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$111569c1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-30 16:22:26.745  INFO 2641 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8096 (https) 8090 (http)
+2019-06-30 16:22:26.788  INFO 2641 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-30 16:22:26.789  INFO 2641 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-30 16:22:26.913  INFO 2641 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-30 16:22:26.914  INFO 2641 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1817 ms
+2019-06-30 16:22:27.362  INFO 2641 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[47.100.35.6:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-06-30 16:22:27.423  INFO 2641 --- [cluster-ClusterId{value='5d187143fac08c0a51a7a057', description='null'}-47.100.35.6:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:453}] to 47.100.35.6:27017
+2019-06-30 16:22:27.432  INFO 2641 --- [cluster-ClusterId{value='5d187143fac08c0a51a7a057', description='null'}-47.100.35.6:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=47.100.35.6:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 9]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=7858624}
+2019-06-30 16:22:29.101  INFO 2641 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-30 16:22:29.646  INFO 2641 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-06-30 16:22:29.730  INFO 2641 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2019-06-30 16:22:29.774 ERROR 2641 --- [main] org.apache.catalina.util.LifecycleBase   : Failed to start component [Connector[HTTP/1.1-8096]]
+
+org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1008) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:226) [tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:259) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:197) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.startWebServer(ServletWebServerApplicationContext.java:311) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.finishRefresh(ServletWebServerApplicationContext.java:164) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:552) [spring-context-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at com.iotexample.demo.DemoApplication.main(DemoApplication.java:10) [classes/:na]
+Caused by: java.lang.IllegalArgumentException: /Users/wuwy/IdeaProjects/iotdemo/cert/keystore.p12 (No such file or directory)
+	at org.apache.tomcat.util.net.AbstractJsseEndpoint.createSSLContext(AbstractJsseEndpoint.java:99) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.AbstractJsseEndpoint.initialiseSsl(AbstractJsseEndpoint.java:71) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:227) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1116) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1202) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:568) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1005) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	... 14 common frames omitted
+Caused by: java.io.FileNotFoundException: /Users/wuwy/IdeaProjects/iotdemo/cert/keystore.p12 (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method) ~[na:1.8.0_201]
+	at java.io.FileInputStream.open(FileInputStream.java:195) ~[na:1.8.0_201]
+	at java.io.FileInputStream.<init>(FileInputStream.java:138) ~[na:1.8.0_201]
+	at java.io.FileInputStream.<init>(FileInputStream.java:93) ~[na:1.8.0_201]
+	at sun.net.www.protocol.file.FileURLConnection.connect(FileURLConnection.java:90) ~[na:1.8.0_201]
+	at sun.net.www.protocol.file.FileURLConnection.getInputStream(FileURLConnection.java:188) ~[na:1.8.0_201]
+	at org.apache.catalina.startup.CatalinaBaseConfigurationSource.getResource(CatalinaBaseConfigurationSource.java:107) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.SSLUtilBase.getStore(SSLUtilBase.java:190) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.SSLHostConfigCertificate.getCertificateKeystore(SSLHostConfigCertificate.java:206) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.SSLUtilBase.getKeyManagers(SSLUtilBase.java:272) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.SSLUtilBase.createSSLContext(SSLUtilBase.java:239) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.AbstractJsseEndpoint.createSSLContext(AbstractJsseEndpoint.java:97) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	... 20 common frames omitted
+
+2019-06-30 16:22:29.790  INFO 2641 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2019-06-30 16:22:29.792  WARN 2641 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [cluster-ClusterId{value='5d187143fac08c0a51a7a057', description='null'}-47.100.35.6:27017] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.waitForSignalOrTimeout(DefaultServerMonitor.java:229)
+ com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.waitForNext(DefaultServerMonitor.java:210)
+ com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:157)
+ java.lang.Thread.run(Thread.java:748)
+2019-06-30 16:22:29.793  WARN 2641 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [CleanCursors-1-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+2019-06-30 16:22:29.802  INFO 2641 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-06-30 16:22:29.805 ERROR 2641 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8096 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8096, or configure this application to listen on another port.
+
+2019-06-30 16:22:30.231  INFO 2641 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-06-30 16:28:09.068  INFO 2666 --- [main] com.iotexample.demo.DemoApplication      : Starting DemoApplication on wuwydeAir.lan with PID 2666 (/Users/wuwy/IdeaProjects/iotdemo/target/classes started by wuwy in /Users/wuwy/IdeaProjects/iotdemo)
+2019-06-30 16:28:09.070  INFO 2666 --- [main] com.iotexample.demo.DemoApplication      : The following profiles are active: test
+2019-06-30 16:28:10.064  INFO 2666 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-30 16:28:10.065  INFO 2666 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-30 16:28:10.085  INFO 2666 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17ms. Found 0 repository interfaces.
+2019-06-30 16:28:10.094  INFO 2666 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-30 16:28:10.095  INFO 2666 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-30 16:28:10.111  INFO 2666 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10ms. Found 0 repository interfaces.
+2019-06-30 16:28:10.492  INFO 2666 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d50bbbda] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-30 16:28:10.851  INFO 2666 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8096 (https) 8090 (http)
+2019-06-30 16:28:10.893  INFO 2666 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-30 16:28:10.893  INFO 2666 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-30 16:28:11.020  INFO 2666 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-30 16:28:11.020  INFO 2666 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1899 ms
+2019-06-30 16:28:11.545  INFO 2666 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[47.100.35.6:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-06-30 16:28:11.606  INFO 2666 --- [cluster-ClusterId{value='5d18729bfac08c0a6aedd722', description='null'}-47.100.35.6:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:454}] to 47.100.35.6:27017
+2019-06-30 16:28:11.615  INFO 2666 --- [cluster-ClusterId{value='5d18729bfac08c0a6aedd722', description='null'}-47.100.35.6:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=47.100.35.6:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 9]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=7753259}
+2019-06-30 16:28:13.318  INFO 2666 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-30 16:28:13.876  INFO 2666 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-06-30 16:28:13.961  INFO 2666 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2019-06-30 16:28:14.014 ERROR 2666 --- [main] org.apache.catalina.util.LifecycleBase   : Failed to start component [Connector[HTTP/1.1-8096]]
+
+org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1008) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:226) [tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:259) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:197) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.startWebServer(ServletWebServerApplicationContext.java:311) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.finishRefresh(ServletWebServerApplicationContext.java:164) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:552) [spring-context-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at com.iotexample.demo.DemoApplication.main(DemoApplication.java:10) [classes/:na]
+Caused by: java.lang.IllegalArgumentException: /Users/wuwy/IdeaProjects/iotdemo/:classpath:cert/keystore.p12 (No such file or directory)
+	at org.apache.tomcat.util.net.AbstractJsseEndpoint.createSSLContext(AbstractJsseEndpoint.java:99) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.AbstractJsseEndpoint.initialiseSsl(AbstractJsseEndpoint.java:71) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:227) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1116) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1202) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:568) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1005) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	... 14 common frames omitted
+Caused by: java.io.FileNotFoundException: /Users/wuwy/IdeaProjects/iotdemo/:classpath:cert/keystore.p12 (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method) ~[na:1.8.0_201]
+	at java.io.FileInputStream.open(FileInputStream.java:195) ~[na:1.8.0_201]
+	at java.io.FileInputStream.<init>(FileInputStream.java:138) ~[na:1.8.0_201]
+	at java.io.FileInputStream.<init>(FileInputStream.java:93) ~[na:1.8.0_201]
+	at sun.net.www.protocol.file.FileURLConnection.connect(FileURLConnection.java:90) ~[na:1.8.0_201]
+	at sun.net.www.protocol.file.FileURLConnection.getInputStream(FileURLConnection.java:188) ~[na:1.8.0_201]
+	at org.apache.catalina.startup.CatalinaBaseConfigurationSource.getResource(CatalinaBaseConfigurationSource.java:107) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.SSLUtilBase.getStore(SSLUtilBase.java:190) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.SSLHostConfigCertificate.getCertificateKeystore(SSLHostConfigCertificate.java:206) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.SSLUtilBase.getKeyManagers(SSLUtilBase.java:272) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.SSLUtilBase.createSSLContext(SSLUtilBase.java:239) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.AbstractJsseEndpoint.createSSLContext(AbstractJsseEndpoint.java:97) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	... 20 common frames omitted
+
+2019-06-30 16:28:14.030  INFO 2666 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2019-06-30 16:28:14.033  WARN 2666 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [cluster-ClusterId{value='5d18729bfac08c0a6aedd722', description='null'}-47.100.35.6:27017] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.waitForSignalOrTimeout(DefaultServerMonitor.java:229)
+ com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.waitForNext(DefaultServerMonitor.java:210)
+ com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:157)
+ java.lang.Thread.run(Thread.java:748)
+2019-06-30 16:28:14.034  WARN 2666 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [CleanCursors-1-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+2019-06-30 16:28:14.044  INFO 2666 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-06-30 16:28:14.047 ERROR 2666 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8096 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8096, or configure this application to listen on another port.
+
+2019-06-30 16:28:14.460  INFO 2666 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-06-30 16:28:32.895  INFO 2676 --- [main] com.iotexample.demo.DemoApplication      : Starting DemoApplication on wuwydeAir.lan with PID 2676 (/Users/wuwy/IdeaProjects/iotdemo/target/classes started by wuwy in /Users/wuwy/IdeaProjects/iotdemo)
+2019-06-30 16:28:32.897  INFO 2676 --- [main] com.iotexample.demo.DemoApplication      : The following profiles are active: test
+2019-06-30 16:28:33.959  INFO 2676 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-30 16:28:33.960  INFO 2676 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-30 16:28:33.982  INFO 2676 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18ms. Found 0 repository interfaces.
+2019-06-30 16:28:33.991  INFO 2676 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-30 16:28:33.992  INFO 2676 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-30 16:28:34.010  INFO 2676 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10ms. Found 0 repository interfaces.
+2019-06-30 16:28:34.377  INFO 2676 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$515f29e9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-30 16:28:34.669  WARN 2676 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Could not load key store 'classpath:cert/keystore.p12'
+2019-06-30 16:28:34.680  INFO 2676 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-06-30 16:28:34.689 ERROR 2676 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Could not load key store 'classpath:cert/keystore.p12'
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:157) ~[spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543) ~[spring-context-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) ~[spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at com.iotexample.demo.DemoApplication.main(DemoApplication.java:10) [classes/:na]
+Caused by: org.springframework.boot.web.server.WebServerException: Could not load key store 'classpath:cert/keystore.p12'
+	at org.springframework.boot.web.embedded.tomcat.SslConnectorCustomizer.configureSslKeyStore(SslConnectorCustomizer.java:137) ~[spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.web.embedded.tomcat.SslConnectorCustomizer.configureSsl(SslConnectorCustomizer.java:92) ~[spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.web.embedded.tomcat.SslConnectorCustomizer.customize(SslConnectorCustomizer.java:58) ~[spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.customizeSsl(TomcatServletWebServerFactory.java:329) ~[spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.customizeConnector(TomcatServletWebServerFactory.java:312) ~[spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:172) ~[spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:181) ~[spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:154) ~[spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	... 8 common frames omitted
+Caused by: java.io.FileNotFoundException: class path resource [cert/keystore.p12] cannot be resolved to URL because it does not exist
+	at org.springframework.util.ResourceUtils.getURL(ResourceUtils.java:137) ~[spring-core-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.boot.web.embedded.tomcat.SslConnectorCustomizer.configureSslKeyStore(SslConnectorCustomizer.java:133) ~[spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	... 15 common frames omitted
+
+2019-06-30 16:31:25.358  INFO 2727 --- [main] com.iotexample.demo.DemoApplication      : Starting DemoApplication on wuwydeAir.lan with PID 2727 (/Users/wuwy/IdeaProjects/iotdemo/target/classes started by wuwy in /Users/wuwy/IdeaProjects/iotdemo)
+2019-06-30 16:31:25.361  INFO 2727 --- [main] com.iotexample.demo.DemoApplication      : The following profiles are active: test
+2019-06-30 16:31:26.577  INFO 2727 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-30 16:31:26.577  INFO 2727 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-30 16:31:26.610  INFO 2727 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28ms. Found 0 repository interfaces.
+2019-06-30 16:31:26.620  INFO 2727 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-30 16:31:26.621  INFO 2727 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-30 16:31:26.638  INFO 2727 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10ms. Found 0 repository interfaces.
+2019-06-30 16:31:27.015  INFO 2727 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7c4c96d1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-30 16:31:27.359  INFO 2727 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8096 (https) 8090 (http)
+2019-06-30 16:31:27.403  INFO 2727 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-30 16:31:27.403  INFO 2727 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-30 16:31:27.529  INFO 2727 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-30 16:31:27.530  INFO 2727 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2129 ms
+2019-06-30 16:31:27.951  INFO 2727 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[47.100.35.6:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-06-30 16:31:28.009  INFO 2727 --- [cluster-ClusterId{value='5d18735ffac08c0aa7cb784d', description='null'}-47.100.35.6:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:455}] to 47.100.35.6:27017
+2019-06-30 16:31:28.017  INFO 2727 --- [cluster-ClusterId{value='5d18735ffac08c0aa7cb784d', description='null'}-47.100.35.6:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=47.100.35.6:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 9]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=6705525}
+2019-06-30 16:31:29.718  INFO 2727 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-30 16:31:30.264  INFO 2727 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-06-30 16:31:30.349  INFO 2727 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2019-06-30 16:31:30.397 ERROR 2727 --- [main] org.apache.catalina.util.LifecycleBase   : Failed to start component [Connector[HTTP/1.1-8096]]
+
+org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1008) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:226) [tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:259) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:197) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.startWebServer(ServletWebServerApplicationContext.java:311) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.finishRefresh(ServletWebServerApplicationContext.java:164) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:552) [spring-context-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at com.iotexample.demo.DemoApplication.main(DemoApplication.java:10) [classes/:na]
+Caused by: java.lang.IllegalArgumentException: /Users/wuwy/IdeaProjects/iotdemo/keystore.p12 (No such file or directory)
+	at org.apache.tomcat.util.net.AbstractJsseEndpoint.createSSLContext(AbstractJsseEndpoint.java:99) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.AbstractJsseEndpoint.initialiseSsl(AbstractJsseEndpoint.java:71) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:227) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1116) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1202) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:568) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1005) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	... 14 common frames omitted
+Caused by: java.io.FileNotFoundException: /Users/wuwy/IdeaProjects/iotdemo/keystore.p12 (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method) ~[na:1.8.0_201]
+	at java.io.FileInputStream.open(FileInputStream.java:195) ~[na:1.8.0_201]
+	at java.io.FileInputStream.<init>(FileInputStream.java:138) ~[na:1.8.0_201]
+	at java.io.FileInputStream.<init>(FileInputStream.java:93) ~[na:1.8.0_201]
+	at sun.net.www.protocol.file.FileURLConnection.connect(FileURLConnection.java:90) ~[na:1.8.0_201]
+	at sun.net.www.protocol.file.FileURLConnection.getInputStream(FileURLConnection.java:188) ~[na:1.8.0_201]
+	at org.apache.catalina.startup.CatalinaBaseConfigurationSource.getResource(CatalinaBaseConfigurationSource.java:107) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.SSLUtilBase.getStore(SSLUtilBase.java:190) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.SSLHostConfigCertificate.getCertificateKeystore(SSLHostConfigCertificate.java:206) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.SSLUtilBase.getKeyManagers(SSLUtilBase.java:272) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.SSLUtilBase.createSSLContext(SSLUtilBase.java:239) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.AbstractJsseEndpoint.createSSLContext(AbstractJsseEndpoint.java:97) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	... 20 common frames omitted
+
+2019-06-30 16:31:30.415  INFO 2727 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2019-06-30 16:31:30.420  WARN 2727 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [cluster-ClusterId{value='5d18735ffac08c0aa7cb784d', description='null'}-47.100.35.6:27017] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.waitForSignalOrTimeout(DefaultServerMonitor.java:229)
+ com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.waitForNext(DefaultServerMonitor.java:210)
+ com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:157)
+ java.lang.Thread.run(Thread.java:748)
+2019-06-30 16:31:30.421  WARN 2727 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [CleanCursors-1-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+2019-06-30 16:31:30.431  INFO 2727 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-06-30 16:31:30.435 ERROR 2727 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8096 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8096, or configure this application to listen on another port.
+
+2019-06-30 16:31:30.849  INFO 2727 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-06-30 16:32:26.613  INFO 2734 --- [main] com.iotexample.demo.DemoApplication      : Starting DemoApplication on wuwydeAir.lan with PID 2734 (/Users/wuwy/IdeaProjects/iotdemo/target/classes started by wuwy in /Users/wuwy/IdeaProjects/iotdemo)
+2019-06-30 16:32:26.615  INFO 2734 --- [main] com.iotexample.demo.DemoApplication      : The following profiles are active: test
+2019-06-30 16:32:27.648  INFO 2734 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-30 16:32:27.648  INFO 2734 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-30 16:32:27.668  INFO 2734 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15ms. Found 0 repository interfaces.
+2019-06-30 16:32:27.676  INFO 2734 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-30 16:32:27.677  INFO 2734 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-30 16:32:27.694  INFO 2734 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10ms. Found 0 repository interfaces.
+2019-06-30 16:32:28.065  INFO 2734 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$eb041e5e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-30 16:32:28.396  INFO 2734 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8096 (https) 8090 (http)
+2019-06-30 16:32:28.441  INFO 2734 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-30 16:32:28.441  INFO 2734 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-30 16:32:28.575  INFO 2734 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-30 16:32:28.575  INFO 2734 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1931 ms
+2019-06-30 16:32:29.018  INFO 2734 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[47.100.35.6:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-06-30 16:32:29.082  INFO 2734 --- [cluster-ClusterId{value='5d18739dfac08c0aae22110d', description='null'}-47.100.35.6:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:456}] to 47.100.35.6:27017
+2019-06-30 16:32:29.092  INFO 2734 --- [cluster-ClusterId{value='5d18739dfac08c0aae22110d', description='null'}-47.100.35.6:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=47.100.35.6:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 9]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=8559537}
+2019-06-30 16:32:30.792  INFO 2734 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-30 16:32:31.353  INFO 2734 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-06-30 16:32:31.440  INFO 2734 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2019-06-30 16:32:31.705  INFO 2734 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8096 (https) 8090 (http) with context path ''
+2019-06-30 16:32:31.708  INFO 2734 --- [main] com.iotexample.demo.DemoApplication      : Started DemoApplication in 5.402 seconds (JVM running for 5.949)
+2019-06-30 16:32:31.974  INFO 2734 --- [RMI TCP Connection(3)-192.168.2.163] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-30 16:32:31.974  INFO 2734 --- [RMI TCP Connection(3)-192.168.2.163] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-06-30 16:32:31.983  INFO 2734 --- [RMI TCP Connection(3)-192.168.2.163] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2019-06-30 16:32:32.085  INFO 2734 --- [RMI TCP Connection(2)-192.168.2.163] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:457}] to 47.100.35.6:27017
+2019-06-30 16:32:32.105  INFO 2734 --- [RMI TCP Connection(2)-192.168.2.163] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-06-30 16:32:32.464  INFO 2734 --- [RMI TCP Connection(2)-192.168.2.163] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-06-30 16:32:56.304  INFO 2734 --- [Thread-13] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-06-30 16:32:56.306  INFO 2734 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-06-30 16:32:56.316  INFO 2734 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-06-30 16:32:56.318  INFO 2734 --- [Thread-13] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:457}] to 47.100.35.6:27017 because the pool has been closed.
+2019-06-30 16:32:58.670  INFO 2739 --- [main] com.iotexample.demo.DemoApplication      : Starting DemoApplication on wuwydeAir.lan with PID 2739 (/Users/wuwy/IdeaProjects/iotdemo/target/classes started by wuwy in /Users/wuwy/IdeaProjects/iotdemo)
+2019-06-30 16:32:58.672  INFO 2739 --- [main] com.iotexample.demo.DemoApplication      : The following profiles are active: test
+2019-06-30 16:33:00.117  INFO 2739 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-30 16:33:00.118  INFO 2739 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-30 16:33:00.154  INFO 2739 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30ms. Found 0 repository interfaces.
+2019-06-30 16:33:00.171  INFO 2739 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-30 16:33:00.172  INFO 2739 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-30 16:33:00.200  INFO 2739 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15ms. Found 0 repository interfaces.
+2019-06-30 16:33:00.783  INFO 2739 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$52dad752] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-30 16:33:01.413  INFO 2739 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (https) 8080 (http)
+2019-06-30 16:33:01.485  INFO 2739 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-30 16:33:01.485  INFO 2739 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-30 16:33:01.626  INFO 2739 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-30 16:33:01.626  INFO 2739 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2915 ms
+2019-06-30 16:33:02.102  INFO 2739 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[47.100.35.6:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-06-30 16:33:02.160  INFO 2739 --- [cluster-ClusterId{value='5d1873befac08c0ab349d12d', description='null'}-47.100.35.6:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:458}] to 47.100.35.6:27017
+2019-06-30 16:33:02.169  INFO 2739 --- [cluster-ClusterId{value='5d1873befac08c0ab349d12d', description='null'}-47.100.35.6:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=47.100.35.6:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 9]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=7780490}
+2019-06-30 16:33:04.043  INFO 2739 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-30 16:33:04.611  INFO 2739 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-06-30 16:33:04.698  INFO 2739 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2019-06-30 16:33:04.969  INFO 2739 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (https) 8080 (http) with context path ''
+2019-06-30 16:33:04.972  INFO 2739 --- [main] com.iotexample.demo.DemoApplication      : Started DemoApplication in 6.612 seconds (JVM running for 7.108)
+2019-06-30 16:33:05.077  INFO 2739 --- [RMI TCP Connection(5)-192.168.2.163] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-30 16:33:05.077  INFO 2739 --- [RMI TCP Connection(5)-192.168.2.163] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-06-30 16:33:05.090  INFO 2739 --- [RMI TCP Connection(5)-192.168.2.163] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2019-06-30 16:33:05.198  INFO 2739 --- [RMI TCP Connection(4)-192.168.2.163] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:459}] to 47.100.35.6:27017
+2019-06-30 16:33:05.215  INFO 2739 --- [RMI TCP Connection(4)-192.168.2.163] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-06-30 16:33:05.566  INFO 2739 --- [RMI TCP Connection(4)-192.168.2.163] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-06-30 16:51:31.092  INFO 2739 --- [Thread-15] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-06-30 16:51:31.096  INFO 2739 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-06-30 16:51:31.104  INFO 2739 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-06-30 16:51:31.108  INFO 2739 --- [Thread-15] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:459}] to 47.100.35.6:27017 because the pool has been closed.
+2019-06-30 16:51:37.056  INFO 3325 --- [main] com.iotexample.demo.DemoApplication      : Starting DemoApplication on wuwydeAir.lan with PID 3325 (/Users/wuwy/IdeaProjects/iotdemo/target/classes started by wuwy in /Users/wuwy/IdeaProjects/iotdemo)
+2019-06-30 16:51:37.058  INFO 3325 --- [main] com.iotexample.demo.DemoApplication      : The following profiles are active: test
+2019-06-30 16:51:37.995  INFO 3325 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-30 16:51:37.996  INFO 3325 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-30 16:51:38.016  INFO 3325 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16ms. Found 0 repository interfaces.
+2019-06-30 16:51:38.023  INFO 3325 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-30 16:51:38.025  INFO 3325 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-30 16:51:38.039  INFO 3325 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9ms. Found 0 repository interfaces.
+2019-06-30 16:51:38.390  INFO 3325 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3d3d0b06] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-30 16:51:38.732  INFO 3325 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (https) 8080 (http)
+2019-06-30 16:51:38.781  INFO 3325 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-30 16:51:38.781  INFO 3325 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-30 16:51:38.924  INFO 3325 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-30 16:51:38.925  INFO 3325 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1833 ms
+2019-06-30 16:51:39.366  INFO 3325 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[47.100.35.6:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-06-30 16:51:39.427  INFO 3325 --- [cluster-ClusterId{value='5d18781bfac08c0cfda6ce8c', description='null'}-47.100.35.6:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:461}] to 47.100.35.6:27017
+2019-06-30 16:51:39.434  INFO 3325 --- [cluster-ClusterId{value='5d18781bfac08c0cfda6ce8c', description='null'}-47.100.35.6:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=47.100.35.6:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 9]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5997192}
+2019-06-30 16:51:41.197  INFO 3325 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-30 16:51:41.709  INFO 3325 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-06-30 16:51:41.822  INFO 3325 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2019-06-30 16:51:42.080  INFO 3325 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (https) 8080 (http) with context path ''
+2019-06-30 16:51:42.083  INFO 3325 --- [main] com.iotexample.demo.DemoApplication      : Started DemoApplication in 5.645 seconds (JVM running for 6.411)
+2019-06-30 16:51:42.457  INFO 3325 --- [RMI TCP Connection(4)-192.168.2.163] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-30 16:51:42.457  INFO 3325 --- [RMI TCP Connection(4)-192.168.2.163] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-06-30 16:51:42.467  INFO 3325 --- [RMI TCP Connection(4)-192.168.2.163] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2019-06-30 16:51:42.573  INFO 3325 --- [RMI TCP Connection(5)-192.168.2.163] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:462}] to 47.100.35.6:27017
+2019-06-30 16:51:42.594  INFO 3325 --- [RMI TCP Connection(5)-192.168.2.163] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-06-30 16:51:42.924  INFO 3325 --- [RMI TCP Connection(5)-192.168.2.163] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.

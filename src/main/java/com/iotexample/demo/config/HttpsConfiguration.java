@@ -48,7 +48,7 @@ public class HttpsConfiguration {
     connector.setScheme("http");
     connector.setPort(port);
     connector.setSecure(false);
-    connector.setRedirectPort(8091);
+    connector.setRedirectPort(sslPort);
     return connector;
   }
 }
