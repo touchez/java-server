@@ -100,6 +100,7 @@ CREATE TABLE IF NOT EXISTS `examinationOrder`(
     `examination_type_id` BIGINT(20) DEFAULT NULL COMMENT '检查类型的id' ,
     `pay_state` INT(1) DEFAULT NULL COMMENT '是否付款，0表示未付款，1表示已付款' ,
     `examination_cost` DECIMAL(10,2) DEFAULT '0.00' COMMENT '检验项目费用',
+    `time` DATETIME DEFAULT NULL COMMENT '检查时间' ,
     PRIMARY KEY ( `examinationOrder_id` )
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

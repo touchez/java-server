@@ -29,3 +29,5 @@ HELP.md
 .vscode/
 
 /logs/
+/cert/1920969_xn--ydsx43h4dn.xyz.key
+/src/main/resources/cert/

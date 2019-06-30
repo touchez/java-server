@@ -88,13 +88,6 @@ public class GuahaoController {
     }
   }
 
-  /** 
-  * @Description: 获取用户的所有挂号
-  * @Param: [token] 
-  * @return: com.iotexample.demo.result.Result<java.util.List<com.iotexample.demo.model.Guahao>> 
-  * @Author: WenYuan
-  * @Date: 2019/5/29 
-  */
   @GetMapping("/{userId}")
   //@NeedGuahao
   public Result<List<Guahao>> getGuahao(@CookieValue(value = "token", required = false) String token, @PathVariable("userId") String str) {
@@ -156,5 +149,19 @@ public class GuahaoController {
   public Result<List<ResponseGuahaoWithOrder>> getAllActive(@RequestParam("userId")long userId) {
     List<ResponseGuahaoWithOrder> list = guahaoService.getActiveGuahaoOrderByTime(userId);
     return Result.success(list);
+  }
+
+  /**
+  * @Description: 根据userId和departmentId和doctorId来获得详细挂号信息。返回值里面的order表示前面还有几人
+  * @Param: [userId, departmentId, doctorId]
+  * @return: com.iotexample.demo.result.Result<com.iotexample.demo.ResponseEntity.ResponseGuahaoWithOrder>
+  * @Author: WenYuan
+  * @Date: 2019/6/29
+  */
+  @GetMapping
+  @CrossOrigin
+  public Result<ResponseGuahaoWithOrder> getGuaHaoDetail(@RequestParam("userId") long userId, @RequestParam("departmentId") long departmentId) {
+    ResponseGuahaoWithOrder responseGuahaoWithOrder = guahaoService.getGuahaoDetail(userId, departmentId);
+    return Result.success(responseGuahaoWithOrder);
   }
 }
