@@ -1,14 +1,9 @@
 package com.iotexample.demo.controller;
 
 import com.iotexample.demo.RequestEntity.RequestMedicalRecord;
-import com.iotexample.demo.ResponseEntity.ResponseMedicalRecord;
-import com.iotexample.demo.ResponseEntity.ResponseMedicalRecord1;
-import com.iotexample.demo.ResponseEntity.ResponseMedicalRecord2;
-import com.iotexample.demo.ResponseEntity.ResponseSimpleExaminationType;
-import com.iotexample.demo.model.ExaminationType;
-import com.iotexample.demo.model.Examinationorder;
-import com.iotexample.demo.model.Medicalrecord;
-import com.iotexample.demo.model.TreatmentDrugOrder;
+import com.iotexample.demo.RequestEntity.RequestNew;
+import com.iotexample.demo.ResponseEntity.*;
+import com.iotexample.demo.model.*;
 import com.iotexample.demo.result.Result;
 import com.iotexample.demo.service.*;
 import com.iotexample.demo.vo.MedicalRecordVo;
@@ -51,6 +46,9 @@ public class MedicalRecordController {
 
   @Autowired
   ExaminationService examinationService;
+
+  @Autowired
+  DoctorService doctorService;
 
   /** 
   * @Description: 根据userId获取用户的所以病历
@@ -182,5 +180,18 @@ public class MedicalRecordController {
 
     return Result.success(medicalRecordId);
 
+  }
+
+  @PostMapping("/web/new")
+  @CrossOrigin
+  public Result<ResponseNew> newOneMediacalRecord(@RequestBody RequestNew requestNew) {
+
+    Medicalrecord medicalRecord = medicalRecordService.newOneMediacalRecord(requestNew);
+
+    String departmentName = departmentService.getDepartmentNameById(medicalRecord.getDepartmentId());
+
+    Doctor doctor = doctorService.getById(medicalRecord.getDoctorId());
+
+    return Result.success(new ResponseNew(medicalRecord.getMedicalrecordId(), doctor.getDoctorName(), departmentName));
   }
 }

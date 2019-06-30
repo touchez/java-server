@@ -1,5 +1,6 @@
 package com.iotexample.demo.service;
 
+import com.iotexample.demo.RequestEntity.RequestNew;
 import com.iotexample.demo.dao.MedicalrecordMapper;
 import com.iotexample.demo.model.Medicalrecord;
 import com.iotexample.demo.model.MedicalrecordExample;
@@ -86,5 +87,17 @@ public class MedicalRecordService {
     medicalRecordId = medicalrecord.getMedicalrecordId();
 
     return medicalRecordId;
+  }
+
+  public Medicalrecord newOneMediacalRecord(RequestNew requestNew) {
+    Medicalrecord medicalrecord = new Medicalrecord()
+            .withUserId(requestNew.getUserId())
+            .withDepartmentId(requestNew.getDepartmentId())
+            .withDoctorId(requestNew.getDoctorId())
+            .withCreateDate(new Date());
+
+    int res = medicalrecordMapper.insertSelective(medicalrecord);
+
+    return medicalrecord;
   }
 }

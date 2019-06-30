@@ -6,6 +6,14 @@ mvn mybatis-generator:generate -e
 ```
 mvn clean package -Dmaven.test.skip=true
 ```
+    运行
+    ```
+    java -jar -Dspring.profiles.active=test iotdemo.jar
+    ```
+    或者
+    ```
+    java -jar iotdemo.jar
+    ```
 3. 创建redis镜像
 ```
  docker run -p 6379:6379 -v $PWD/data:/data -d redis redis-server --appendonly yes
