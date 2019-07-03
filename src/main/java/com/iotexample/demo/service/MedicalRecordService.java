@@ -35,7 +35,7 @@ public class MedicalRecordService {
             .andUserIdEqualTo(userId);
 
     List<Medicalrecord> list = medicalrecordMapper.selectByExample(medicalrecordExample);
-    list.forEach(e -> log.info("select by example {}", e));
+    //list.forEach(e -> log.info("select by example {}", e));
     return list;
   }
 

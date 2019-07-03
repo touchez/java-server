@@ -30,15 +30,15 @@ public class MedicalHistoryService {
     Sort sort = new Sort(Sort.Direction.DESC, "date");
     List<MedicalHistory> list = mongoTemplate.find(
             Query.query(Criteria.where("user").is(user)).with(sort),MedicalHistory.class);
-    log.info("Find {} MedicalHistory:", list.size());
-    list.forEach(c -> log.info("MedicalHistory {}", c));
+    //log.info("Find {} MedicalHistory:", list.size());
+    //list.forEach(c -> log.info("MedicalHistory {}", c));
 
     return list;
   }
 
   public String add(MedicalHistory medicalHistory) {
     MedicalHistory medicalHistory1 = mongoTemplate.save(medicalHistory);
-    log.info("Insert MedicalHistory {}", medicalHistory1);
+    //log.info("Insert MedicalHistory {}", medicalHistory1);
 
     return medicalHistory1.getId();
   }

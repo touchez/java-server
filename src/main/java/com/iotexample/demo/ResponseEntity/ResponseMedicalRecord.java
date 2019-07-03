@@ -29,7 +29,7 @@ public class ResponseMedicalRecord {
     this.addr = addr;
     this.hospitalName = hospitalName;
     this.generalName = medicalrecord.getGeneral();
-    log.info("general is:{}",generalName);
+    //log.info("general is:{}",generalName);
     this.medicalRecordId = medicalrecord.getMedicalrecordId();
   }
 }
