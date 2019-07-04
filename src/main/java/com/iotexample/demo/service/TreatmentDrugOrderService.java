@@ -66,15 +66,16 @@ public class TreatmentDrugOrderService {
 
   public int updateTreatmentDrugOrder(List<TreatmentDrugOrder> treatmentDrugOrders, long treatmentId) {
     for (TreatmentDrugOrder t : treatmentDrugOrders) {
-      if (t.getTreatmentId() == null) {
-        t.setTreatmentId(treatmentId);
-      }
 
       if (t.getCreateDate() == null) {
         t.setCreateDate(new Date());
       }
 
-      int res = treatmentDrugOrderMapper.insertSelective(t);
+      if (t.getTreatmentId() == null) {
+        t.setTreatmentId(treatmentId);
+        int res = treatmentDrugOrderMapper.insertSelective(t);
+      }
+
     }
 
     return 0;

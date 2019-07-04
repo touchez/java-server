@@ -1,5 +1,7 @@
 package com.iotexample.demo.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.iotexample.demo.ResponseEntity.ResponseGuahaoWithOrder;
 import com.iotexample.demo.model.Guahao;
 import com.iotexample.demo.myredis.GuahaoKey;
@@ -59,7 +61,7 @@ public class GuahaoController {
   */
   @PostMapping
   @CrossOrigin
-  public Result<Guahao> guahao(HttpServletResponse response, @RequestBody GuahaoVo guahaoVo, @CookieValue(value = "token", required = false) String token) {
+  public Result<JSONObject> guahao(HttpServletResponse response, @RequestBody GuahaoVo guahaoVo, @CookieValue(value = "token", required = false) String token) {
     long userId = guahaoVo.getUserId();
     long departmentId = guahaoVo.getDepartmentId();
     long doctorId = guahaoVo.getDoctorId();
@@ -81,7 +83,13 @@ public class GuahaoController {
         updateCookie(response, token, userId);
       }
 
-      return Result.success(guahao);
+      String str = JSON.toJSONString(guahao);
+
+      JSONObject json = JSONObject.parseObject(str);
+
+      json.put("order", guahaoService.getOrderByGuahaoId(guahao.getGuahaoId()));
+
+      return Result.success(json);
     } catch (DuplicateKeyException e) {
 
       return Result.error(CodeMsg.DUPLICATE_ERROR);
@@ -163,5 +171,21 @@ public class GuahaoController {
   public Result<ResponseGuahaoWithOrder> getGuaHaoDetail(@RequestParam("userId") long userId, @RequestParam("departmentId") long departmentId) {
     ResponseGuahaoWithOrder responseGuahaoWithOrder = guahaoService.getGuahaoDetail(userId, departmentId);
     return Result.success(responseGuahaoWithOrder);
+  }
+
+
+  /** 
+  * @Description: 根据userId去删除对应的挂号信息 
+  * @Param: [userId] 
+  * @return: com.iotexample.demo.result.Result<java.lang.String> 
+  * @Author: WenYuan
+  * @Date: 2019/7/3 
+  */
+  @DeleteMapping
+  @CrossOrigin
+  public Result<String> deleteGuahao(@RequestParam("userId") long userId) {
+    int res = guahaoService.deleteGuahaoByUserId(userId);
+    
+    return Result.success("success");
   }
 }

@@ -4,10 +4,12 @@ import com.iotexample.demo.RequestEntity.RequestNew;
 import com.iotexample.demo.dao.MedicalrecordMapper;
 import com.iotexample.demo.model.Medicalrecord;
 import com.iotexample.demo.model.MedicalrecordExample;
+import com.iotexample.demo.mymapper.MyMedicalRecordMapper;
 import com.iotexample.demo.vo.SimpleMedicalRecord;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,6 +30,9 @@ public class MedicalRecordService {
 
   @Autowired
   DepartmentService departmentService;
+
+  @Autowired
+  MyMedicalRecordMapper myMedicalRecordMapper;
 
   public List<Medicalrecord> getMedicalRecordByUserId(long userId) {
     MedicalrecordExample medicalrecordExample = new MedicalrecordExample();
@@ -59,7 +64,7 @@ public class MedicalRecordService {
       String hospitalName = departmentService.getHospitalNameByDepartmentId(medicalrecord.getDepartmentId());
 
       SimpleMedicalRecord simpleMedicalRecord =
-              new SimpleMedicalRecord(medicalrecord.getMedicalrecordId(), medicalrecord.getGeneral(), departmentName, hospitalName);
+              new SimpleMedicalRecord(medicalrecord.getMedicalrecordId(), medicalrecord.getGeneral(), departmentName, hospitalName, medicalrecord.getCreateDate());
 
       list.add(simpleMedicalRecord);
     }
@@ -99,5 +104,10 @@ public class MedicalRecordService {
     int res = medicalrecordMapper.insertSelective(medicalrecord);
 
     return medicalrecord;
+  }
+
+  public long getLatestMedicalRecordId() {
+    long medicalRecordId = myMedicalRecordMapper.getLatestMedicalRecordId();
+    return medicalRecordId;
   }
 }

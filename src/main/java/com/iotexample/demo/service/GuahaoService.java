@@ -5,6 +5,8 @@ import com.iotexample.demo.dao.GuahaoMapper;
 import com.iotexample.demo.exception.GlobalException;
 import com.iotexample.demo.model.Guahao;
 import com.iotexample.demo.model.GuahaoExample;
+import com.iotexample.demo.mymapper.MyGuahaoMapper;
+import com.iotexample.demo.mymapper.MyMedicalRecordMapper;
 import com.iotexample.demo.result.CodeMsg;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,9 @@ public class GuahaoService {
 
   @Autowired
   GuahaoMapper guahaoMapper;
+
+  @Autowired
+  MyGuahaoMapper myGuahaoMapper;
 
   public Guahao guahao(long userId, long departmentId, long doctorId) {
     String departmentName = departmentService.getDepartmentNameById(departmentId);
@@ -145,5 +150,11 @@ public class GuahaoService {
     e.setOrder(getOrderByGuahaoId(guahao.getGuahaoId()));
 
     return e;
+  }
+
+  public int deleteGuahaoByUserId(long userId) {
+    int res = myGuahaoMapper.deleteGuahaoByUserId(userId);
+
+    return res;
   }
 }

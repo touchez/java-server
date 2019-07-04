@@ -20,5 +20,5 @@ public class SimpleMedicalRecord {
   String generalName;
   String departmentName;
   String hospitalName;
-  //Date createDate;
+  Date createDate;
 }

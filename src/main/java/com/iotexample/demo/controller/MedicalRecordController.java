@@ -108,6 +108,10 @@ public class MedicalRecordController {
 
     log.info("medicalRecordId is " + medicalRecordId);
 
+    if (medicalRecordId == 0) {
+      medicalRecordId = medicalRecordService.getLatestMedicalRecordId();
+    }
+
 
     Medicalrecord medicalrecord = medicalRecordService.getMedicalRecordById(medicalRecordId);
 
@@ -141,10 +145,18 @@ public class MedicalRecordController {
 
     if (examinationTypes != null) {
       //TODO 先插入到对应的子项目表中，再插入到收费的总表
-      for (ExaminationType e : examinationTypes) {
+      List<ResponseSimpleExaminationType> list1 = examinationTypeService.getAllExaminationTypeByMedicalRecordId(medicalRecordId);
+      int length = list1.size();
+      //防止重复插入，只插入多出来的部分
+      for (int i = length; i < examinationTypes.size(); i++) {
+        ExaminationType e = examinationTypes.get(i);
         long examinationId = examinationService.insertExamnaitons(e, userId);
         int res2 = examinationOrderService.updateExaminationOrder(e, userId, medicalRecordId, examinationId, e.getExaminationTypeId());
       }
+//      for (ExaminationType e : examinationTypes) {
+//        long examinationId = examinationService.insertExamnaitons(e, userId);
+//        int res2 = examinationOrderService.updateExaminationOrder(e, userId, medicalRecordId, examinationId, e.getExaminationTypeId());
+//      }
 
     }
 
@@ -181,6 +193,7 @@ public class MedicalRecordController {
     return Result.success(medicalRecordId);
 
   }
+
 
   @PostMapping("/web/new")
   @CrossOrigin

@@ -67,7 +67,8 @@ public class ExaminationTypeService {
 
   public List<ExaminationType> getExaminationTypesByIds(List<Long> examinationTypesId) {
     if (examinationTypesId == null || examinationTypesId.size() <=0) {
-      throw new GlobalException(CodeMsg.SERVER_ERROR);
+      //throw new GlobalException(CodeMsg.SERVER_ERROR);
+      return null;
     }
 
     List<ExaminationType> list = new ArrayList<>();
