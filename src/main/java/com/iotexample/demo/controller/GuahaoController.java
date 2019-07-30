@@ -53,12 +53,12 @@ public class GuahaoController {
 
 
   /**
-  * @Description:  根据参数添加挂号
-  * @Param: 例子：http://localhost:8080/guahao
-  * @return: 自增的主键guahaoId的值
-  * @Author: WenYuan
-  * @Date: 2019/5/23
-  */
+   * @Description: 根据参数添加挂号
+   * @Param: 例子：http://localhost:8080/guahao
+   * @return: 自增的主键guahaoId的值
+   * @Author: WenYuan
+   * @Date: 2019/5/23
+   */
   @PostMapping
   @CrossOrigin
   public Result<JSONObject> guahao(HttpServletResponse response, @RequestBody GuahaoVo guahaoVo, @CookieValue(value = "token", required = false) String token) {
@@ -78,7 +78,7 @@ public class GuahaoController {
       if (token == null) {
         token = UUIDUtil.uuid();
         addCookie(response, token, userId);
-      }else {
+      } else {
         //如果之前有cookie还重新登录了，就要更新cookie
         updateCookie(response, token, userId);
       }
@@ -111,15 +111,15 @@ public class GuahaoController {
   }
 
   /**
-  * @Description:  获取前面还有多少人
-  * @Param: [guahaoId] http://localhost:8080/guahao/getOrder?guahaoId=7
-  * @return: long 前面的人数
-  * @Author: WenYuan
-  * @Date: 2019/5/23
-  */
+   * @Description: 获取前面还有多少人
+   * @Param: [guahaoId] http://localhost:8080/guahao/getOrder?guahaoId=7
+   * @return: long 前面的人数
+   * @Author: WenYuan
+   * @Date: 2019/5/23
+   */
   @GetMapping("/order")
   @NeedGuahao
-  public Result<Long> getOrder(@RequestParam(value = "guahaoId", defaultValue = "-1")long guahaoId) {
+  public Result<Long> getOrder(@RequestParam(value = "guahaoId", defaultValue = "-1") long guahaoId) {
     long order = guahaoService.getOrderByGuahaoId(guahaoId);
     return Result.success(order);
   }
@@ -147,25 +147,25 @@ public class GuahaoController {
   }
 
   /**
-  * @Description: 根据userId返回用户的所有active的挂号消息并且按order排序
-  * @Param: [userId]
-  * @return: com.iotexample.demo.result.Result<java.util.List<com.iotexample.demo.ResponseEntity.ResponseGuahaoWithOrder>>
-  * @Author: WenYuan
-  * @Date: 2019-06-04
-  */
+   * @Description: 根据userId返回用户的所有active的挂号消息并且按order排序
+   * @Param: [userId]
+   * @return: com.iotexample.demo.result.Result<java.util.List < com.iotexample.demo.ResponseEntity.ResponseGuahaoWithOrder>>
+   * @Author: WenYuan
+   * @Date: 2019-06-04
+   */
   @GetMapping("/active")
-  public Result<List<ResponseGuahaoWithOrder>> getAllActive(@RequestParam("userId")long userId) {
+  public Result<List<ResponseGuahaoWithOrder>> getAllActive(@RequestParam("userId") long userId) {
     List<ResponseGuahaoWithOrder> list = guahaoService.getActiveGuahaoOrderByTime(userId);
     return Result.success(list);
   }
 
   /**
-  * @Description: 根据userId和departmentId和doctorId来获得详细挂号信息。返回值里面的order表示前面还有几人
-  * @Param: [userId, departmentId, doctorId]
-  * @return: com.iotexample.demo.result.Result<com.iotexample.demo.ResponseEntity.ResponseGuahaoWithOrder>
-  * @Author: WenYuan
-  * @Date: 2019/6/29
-  */
+   * @Description: 根据userId和departmentId和doctorId来获得详细挂号信息。返回值里面的order表示前面还有几人
+   * @Param: [userId, departmentId, doctorId]
+   * @return: com.iotexample.demo.result.Result<com.iotexample.demo.ResponseEntity.ResponseGuahaoWithOrder>
+   * @Author: WenYuan
+   * @Date: 2019/6/29
+   */
   @GetMapping
   @CrossOrigin
   public Result<ResponseGuahaoWithOrder> getGuaHaoDetail(@RequestParam("userId") long userId, @RequestParam("departmentId") long departmentId) {
@@ -174,18 +174,18 @@ public class GuahaoController {
   }
 
 
-  /** 
-  * @Description: 根据userId去删除对应的挂号信息 
-  * @Param: [userId] 
-  * @return: com.iotexample.demo.result.Result<java.lang.String> 
-  * @Author: WenYuan
-  * @Date: 2019/7/3 
-  */
+  /**
+   * @Description: 根据userId去删除对应的挂号信息
+   * @Param: [userId]
+   * @return: com.iotexample.demo.result.Result<java.lang.String>
+   * @Author: WenYuan
+   * @Date: 2019/7/3
+   */
   @DeleteMapping
   @CrossOrigin
   public Result<String> deleteGuahao(@RequestParam("userId") long userId) {
     int res = guahaoService.deleteGuahaoByUserId(userId);
-    
+
     return Result.success("success");
   }
 }

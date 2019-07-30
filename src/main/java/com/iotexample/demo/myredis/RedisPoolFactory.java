@@ -10,18 +10,18 @@ import redis.clients.jedis.JedisPoolConfig;
 @Slf4j
 @Service
 public class RedisPoolFactory {
-    @Autowired
-    RedisConfig redisConfig;
+  @Autowired
+  RedisConfig redisConfig;
 
-    @Bean
-    public JedisPool JedisPoolFactory() {
-        JedisPoolConfig poolConfig = new JedisPoolConfig();
-        poolConfig.setMaxIdle(redisConfig.getPoolMaxIdle());
-        poolConfig.setMaxTotal(redisConfig.getPoolMaxTotal());
-        poolConfig.setMaxWaitMillis(redisConfig.getPoolMaxWait() * 1000);
-        log.info("redis host is :{}", redisConfig.getHost());
-        JedisPool jp = new JedisPool(poolConfig,redisConfig.getHost(), redisConfig.getPort(),
-                redisConfig.getTimeout() * 1000, redisConfig.getPassword(), 0);
-        return jp;
-    }
+  @Bean
+  public JedisPool JedisPoolFactory() {
+    JedisPoolConfig poolConfig = new JedisPoolConfig();
+    poolConfig.setMaxIdle(redisConfig.getPoolMaxIdle());
+    poolConfig.setMaxTotal(redisConfig.getPoolMaxTotal());
+    poolConfig.setMaxWaitMillis(redisConfig.getPoolMaxWait() * 1000);
+    log.info("redis host is :{}", redisConfig.getHost());
+    JedisPool jp = new JedisPool(poolConfig, redisConfig.getHost(), redisConfig.getPort(),
+            redisConfig.getTimeout() * 1000, redisConfig.getPassword(), 0);
+    return jp;
+  }
 }

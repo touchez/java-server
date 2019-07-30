@@ -46,7 +46,7 @@ public class UserService {
     UserExample.Criteria criteria = userExample.createCriteria();
     criteria.andUserIdIsNotNull();
 
-    List<User>list = userMapper.selectByExample(userExample);
+    List<User> list = userMapper.selectByExample(userExample);
     list.forEach(e -> log.info("select by example {}", e));
 
     return list;
@@ -83,7 +83,7 @@ public class UserService {
       User user = new User().withUid(loginVo.getOpenid());
       userMapper.insertSelective(user);
       userId = user.getUserId();
-    }else {
+    } else {
       userId = list.get(0).getUserId();
     }
 

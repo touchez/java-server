@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
  **/
 @ControllerAdvice
 @ResponseBody
-public class GlobalExceptionHandler extends BaseAggregationLayerGlobalExceptionHandler  {
+public class GlobalExceptionHandler extends BaseAggregationLayerGlobalExceptionHandler {
 
   /**
    * @Description: 处理运行时异常时返回的http状态为500之类的，同时再调用处理异常的函数

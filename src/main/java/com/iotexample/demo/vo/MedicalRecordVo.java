@@ -28,6 +28,5 @@ public class MedicalRecordVo {
   private List<SimpleMedicalRecord> simpleMedicalRecords;
 
 
-
 }
 

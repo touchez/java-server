@@ -8,23 +8,23 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
 
 @EnableRedisHttpSession(maxInactiveIntervalInSeconds = 600)
 public class SessionConfig {
-    //冒号后面的值是没有配置文件时自动装载的值
-    @Value("${spring.redis.host:localhost}")
-    private String hostName;
-    @Value("${spring.redis.port:6379}")
-    private int port;
-    @Value("${spring.redis.password:null}")
-    private String password;
+  //冒号后面的值是没有配置文件时自动装载的值
+  @Value("${spring.redis.host:localhost}")
+  private String hostName;
+  @Value("${spring.redis.port:6379}")
+  private int port;
+  @Value("${spring.redis.password:null}")
+  private String password;
 
-    @Bean
-    public JedisConnectionFactory connectionFactory() {
-        JedisConnectionFactory connection = new JedisConnectionFactory();
-        connection.setPort(port);
-        connection.setHostName(hostName);
-        if (password != null && !"null".equals(password)) {
-            connection.setPassword(password);
-        }
-        connection.setDatabase(0);
-        return connection;
+  @Bean
+  public JedisConnectionFactory connectionFactory() {
+    JedisConnectionFactory connection = new JedisConnectionFactory();
+    connection.setPort(port);
+    connection.setHostName(hostName);
+    if (password != null && !"null".equals(password)) {
+      connection.setPassword(password);
     }
+    connection.setDatabase(0);
+    return connection;
+  }
 }

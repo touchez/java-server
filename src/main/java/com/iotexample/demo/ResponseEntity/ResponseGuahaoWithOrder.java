@@ -9,6 +9,7 @@ import lombok.Setter;
 public class ResponseGuahaoWithOrder {
   private Guahao guahao;
   private long order;
+
   public ResponseGuahaoWithOrder(Guahao guahao) {
     this.guahao = guahao;
   }

@@ -42,7 +42,7 @@ public class GuahaoService {
             .withDepartmentName(departmentName)
             .withDoctorId(doctorId)
             .withCreateDate(now)
-            .withEndDate(new Date(now.getTime()+ 24 * 60 * 60 * 1000L))
+            .withEndDate(new Date(now.getTime() + 24 * 60 * 60 * 1000L))
             .withState(1);
 //    log.info("before insert:{}", guahao);
 
@@ -68,12 +68,12 @@ public class GuahaoService {
   }
 
   /**
-  * @Description: 根据userId查询所有挂号记录
-  * @Param: [userId]
-  * @return: java.util.List<com.iotexample.demo.model.Guahao>
-  * @Author: WenYuan
-  * @Date: 2019/6/2
-  */
+   * @Description: 根据userId查询所有挂号记录
+   * @Param: [userId]
+   * @return: java.util.List<com.iotexample.demo.model.Guahao>
+   * @Author: WenYuan
+   * @Date: 2019/6/2
+   */
   public List<Guahao> getGuahao(long userId) {
     GuahaoExample getExample = new GuahaoExample();
     getExample.createCriteria()
@@ -92,12 +92,12 @@ public class GuahaoService {
   }
 
   /**
-  * @Description: 根据userId返回用户的所有active的挂号消息并且按order排序
-  * @Param: [userId]
-  * @return: java.util.List<com.iotexample.demo.model.Guahao>
-  * @Author: WenYuan
-  * @Date: 2019-06-04
-  */
+   * @Description: 根据userId返回用户的所有active的挂号消息并且按order排序
+   * @Param: [userId]
+   * @return: java.util.List<com.iotexample.demo.model.Guahao>
+   * @Author: WenYuan
+   * @Date: 2019-06-04
+   */
   public List<ResponseGuahaoWithOrder> getActiveGuahaoOrderByTime(long userId) {
     GuahaoExample getExample = new GuahaoExample();
     //state为1说明是active的
@@ -122,7 +122,7 @@ public class GuahaoService {
         int res = 0;
         if (o1.getOrder() > o2.getOrder()) {
           res = 1;
-        }else if (o1.getOrder() < o2.getOrder()) {
+        } else if (o1.getOrder() < o2.getOrder()) {
           res = -1;
         }
         return res;
@@ -153,6 +153,11 @@ public class GuahaoService {
   }
 
   public int deleteGuahaoByUserId(long userId) {
+//    GuahaoExample guahaoExample = new GuahaoExample();
+//    guahaoExample.createCriteria()
+//            .andUserIdEqualTo(userId);
+
+//    int res = guahaoMapper.deleteByExample(guahaoExample);
     int res = myGuahaoMapper.deleteGuahaoByUserId(userId);
 
     return res;

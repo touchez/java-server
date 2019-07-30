@@ -20,7 +20,8 @@ import java.util.List;
 public class ResponseMedicalRecord2 {
   private Medicalrecord medicalrecord;
   private List<ExamIdType> examinationOrder;
-  public ResponseMedicalRecord2 (Medicalrecord medicalrecord, List<Examinationorder> examinationorders) {
+
+  public ResponseMedicalRecord2(Medicalrecord medicalrecord, List<Examinationorder> examinationorders) {
     this.medicalrecord = medicalrecord;
     examinationOrder = new ArrayList<>();
     for (Examinationorder e : examinationorders) {
@@ -28,6 +29,7 @@ public class ResponseMedicalRecord2 {
     }
   }
 }
+
 @Getter
 @Setter
 @AllArgsConstructor

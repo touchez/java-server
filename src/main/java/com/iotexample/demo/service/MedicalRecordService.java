@@ -84,7 +84,7 @@ public class MedicalRecordService {
       }
 
       int res = medicalrecordMapper.insertSelective(medicalrecord);
-    }else {
+    } else {
       //有id则一定在数据库中，故更新
       int res = medicalrecordMapper.updateByPrimaryKeySelective(medicalrecord);
     }

@@ -35,7 +35,7 @@ public class TreatmentDrugOrderService {
 
     List<TreatmentDrugOrder> resList = new ArrayList<>();
 
-    for (Long id: treatmentIds) {
+    for (Long id : treatmentIds) {
       TreatmentDrugOrderExample treatmentDrugOrderExample = new TreatmentDrugOrderExample();
       treatmentDrugOrderExample.createCriteria()
               .andTreatmentIdEqualTo(id);

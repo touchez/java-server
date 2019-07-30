@@ -3,27 +3,28 @@ package com.iotexample.demo.myredis;
 
 public abstract class BasePrefix implements KeyPrefix {
 
-    private String prefix;
+  private String prefix;
 
-    private int expireSeconds;
+  private int expireSeconds;
 
-    public BasePrefix(int expireSeconds, String prefix) {
-        this.prefix = prefix;
-        this.expireSeconds = expireSeconds;
-    }
-    public BasePrefix(String prefix) {
-        this.prefix = prefix;
-        this.expireSeconds = 0;
-    }
+  public BasePrefix(int expireSeconds, String prefix) {
+    this.prefix = prefix;
+    this.expireSeconds = expireSeconds;
+  }
 
-    @Override
-    public int expireSeconds() {
-        return expireSeconds;
-    }
+  public BasePrefix(String prefix) {
+    this.prefix = prefix;
+    this.expireSeconds = 0;
+  }
 
-    @Override
-    public String getPrefix() {
-        String className = getClass().getSimpleName();
-        return className + ":" + prefix;
-    }
+  @Override
+  public int expireSeconds() {
+    return expireSeconds;
+  }
+
+  @Override
+  public String getPrefix() {
+    String className = getClass().getSimpleName();
+    return className + ":" + prefix;
+  }
 }

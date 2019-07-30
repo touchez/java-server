@@ -9,6 +9,7 @@ package com.iotexample.demo.myredis;
 
 public class GuahaoKey extends BasePrefix {
   private static final int EXPIRE_SECONDS = 10 * 60;
+
   private GuahaoKey(int expireSeconds, String prefix) {
     super(expireSeconds, prefix);
   }

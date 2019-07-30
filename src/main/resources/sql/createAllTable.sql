@@ -101,6 +101,7 @@ CREATE TABLE IF NOT EXISTS `examinationOrder`(
     `pay_state` INT(1) DEFAULT NULL COMMENT '是否付款，0表示未付款，1表示已付款' ,
     `examination_cost` DECIMAL(10,2) DEFAULT '0.00' COMMENT '检验项目费用',
     `time` DATETIME DEFAULT NULL COMMENT '检查时间' ,
+    `active` INT(1) DEFAULT NULL COMMENT '检查是否活跃状态' ,
     PRIMARY KEY ( `examinationOrder_id` )
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -174,4 +175,12 @@ CREATE TABLE IF NOT EXISTS `examination_type`(
     `examination_addr` VARCHAR(100) DEFAULT NULL COMMENT '检验地址' ,
     `examination_cost` DECIMAL(10,2) DEFAULT '0.00' COMMENT '检验项目费用',
     PRIMARY KEY ( `examination_type_id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `examination_report`(
+    `examination_report_id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '检查报告的id' ,
+    `examinationOrder_id` BIGINT(20) NOT NULL COMMENT '检查项目流水id' ,
+    `examination_result` longtext DEFAULT NULL COMMENT '检查结果' ,
+    `create_date` DATETIME DEFAULT NULL COMMENT '创建时间' ,
+    PRIMARY KEY ( `examination_report_id` )
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;

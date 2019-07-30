@@ -29,7 +29,7 @@ public class MedicalHistoryService {
     //返回日期降序
     Sort sort = new Sort(Sort.Direction.DESC, "date");
     List<MedicalHistory> list = mongoTemplate.find(
-            Query.query(Criteria.where("user").is(user)).with(sort),MedicalHistory.class);
+            Query.query(Criteria.where("user").is(user)).with(sort), MedicalHistory.class);
     //log.info("Find {} MedicalHistory:", list.size());
     //list.forEach(c -> log.info("MedicalHistory {}", c));
 

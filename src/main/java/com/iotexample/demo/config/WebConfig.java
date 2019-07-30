@@ -31,9 +31,12 @@ public class WebConfig implements WebMvcConfigurer {
     converter.setFastJsonConfig(config);
     converters.add(0, converter);
   }
+
   @Override
   public void addInterceptors(InterceptorRegistry registry) {
     registry.addInterceptor(needGuahaoInterceptor())
+            .addPathPatterns("/**");
+    registry.addInterceptor(new PerformanceInteceptor())
             .addPathPatterns("/**");
   }
 

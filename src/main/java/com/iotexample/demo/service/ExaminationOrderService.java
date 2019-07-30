@@ -112,12 +112,25 @@ public class ExaminationOrderService {
             .withPayState(0)
             .withUserId(userId)
             .withExaminationTypeId(exminationTypeId)
-            .withMedicalrecordId(medicalRecordId);
+            .withMedicalrecordId(medicalRecordId)
+            .withActive(0);
 
     int res = examinationorderMapper.insertSelective(examinationorder);
 
 
     return res;
 
+  }
+
+  public List<Examinationorder> isActive(long userId, String type) {
+    ExaminationorderExample examinationorderExample = new ExaminationorderExample();
+    examinationorderExample.createCriteria()
+            .andUserIdEqualTo(userId)
+            .andExaminationTypeEqualTo(type)
+            .andActiveEqualTo(0);
+
+    List<Examinationorder> list = examinationorderMapper.selectByExample(examinationorderExample);
+
+    return list;
   }
 }

@@ -29,12 +29,12 @@ public class PayService {
   MyPayMapper myPayMapper;
 
   /**
-  * @Description: 根据userId和examinationOrderId进行扣款，正常情况返回1，已经付款过了返回-1，余额不足返回-2
-  * @Param: [userId, examinationOrderId]
-  * @return: int
-  * @Author: WenYuan
-  * @Date: 2019-06-04
-  */
+   * @Description: 根据userId和examinationOrderId进行扣款，正常情况返回1，已经付款过了返回-1，余额不足返回-2
+   * @Param: [userId, examinationOrderId]
+   * @return: int
+   * @Author: WenYuan
+   * @Date: 2019-06-04
+   */
   @Transactional(rollbackFor = Exception.class)
   public int payExaminationOrderByUserIdAndId(long userId, long examinationOrderId) {
     Examinationorder examinationorder = examinationorderMapper.selectByPrimaryKey(examinationOrderId);
@@ -51,12 +51,12 @@ public class PayService {
       int res1 = myPayMapper.payExamination(examinationOrderId);
       if (res1 > 0) {
         return res;
-      }else {
+      } else {
         //已经付款过了
         myPayMapper.addBalance(userId, price);
         return -1;
       }
-    }else {
+    } else {
       //余额不足
       return -2;
     }
@@ -78,12 +78,12 @@ public class PayService {
       int res1 = myPayMapper.payTreatment(treatmentId);
       if (res1 > 0) {
         return res;
-      }else {
+      } else {
         //已经付款过了
         myPayMapper.addBalance(userId, price);
         return -1;
       }
-    }else {
+    } else {
       //余额不足
       return -2;
     }

@@ -27,7 +27,7 @@ public class DepartmentService {
     DepartmentExample.Criteria criteria = departmentExample.createCriteria();
     criteria.andDepartmentIdIsNotNull();
 
-    List<Department>list = departmentMapper.selectByExample(departmentExample);
+    List<Department> list = departmentMapper.selectByExample(departmentExample);
     //list.forEach(e -> log.info("select by example {}", e));
 
     return list;
@@ -38,7 +38,7 @@ public class DepartmentService {
     DepartmentExample.Criteria criteria = departmentExample.createCriteria();
     criteria.andHospitalIdEqualTo(hospitalId);
 
-    List<Department>list = departmentMapper.selectByExample(departmentExample);
+    List<Department> list = departmentMapper.selectByExample(departmentExample);
     //list.forEach(e -> log.info("select by example {}", e));
 
     return list;

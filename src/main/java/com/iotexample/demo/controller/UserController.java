@@ -36,7 +36,7 @@ public class UserController {
   }
 
   @PutMapping("/{userId}")
-  public Result<Long> updateUser(@PathVariable("userId")String str, @RequestBody User user) {
+  public Result<Long> updateUser(@PathVariable("userId") String str, @RequestBody User user) {
     long userId = Long.parseLong(str);
     //TODO 修改用户信息
     return Result.success(0L);

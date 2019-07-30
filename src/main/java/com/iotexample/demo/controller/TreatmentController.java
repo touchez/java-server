@@ -15,7 +15,7 @@ public class TreatmentController {
   TreatmentService treatmentService;
 
   @GetMapping("/{userId}")
-  public Result<List<Treatment>> getTreatmentByUserId(@PathVariable("userId")long userId, @RequestParam("payState")int payState) {
+  public Result<List<Treatment>> getTreatmentByUserId(@PathVariable("userId") long userId, @RequestParam("payState") int payState) {
     List<Treatment> list = treatmentService.getTreatmentsByUserIdAndPayState(userId, payState);
     return Result.success(list);
   }

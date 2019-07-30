@@ -25,18 +25,18 @@ public class DrugController {
   @Autowired
   DrugService drugService;
 
-  /** 
-  * @Description: 获取所有的药品信息
-  * @Param: [] 
-  * @return: com.iotexample.demo.result.Result<java.util.List<com.iotexample.demo.model.Drug>> 
-  * @Author: WenYuan
-  * @Date: 2019/6/22 
-  */
+  /**
+   * @Description: 获取所有的药品信息
+   * @Param: []
+   * @return: com.iotexample.demo.result.Result<java.util.List < com.iotexample.demo.model.Drug>>
+   * @Author: WenYuan
+   * @Date: 2019/6/22
+   */
   @GetMapping("/all")
   @CrossOrigin
   public Result<List<Drug>> getAllDrugs() {
     List<Drug> list = drugService.getAllDrugs();
-    
+
     return Result.success(list);
   }
 

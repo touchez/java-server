@@ -20,30 +20,30 @@ import java.util.List;
 public class DepartmentController {
   @Autowired
   DepartmentService departmentService;
-  
-  /** 
-  * @Description: 返回所有的科室信息 
-  * @Param: [] 
-  * @return: com.iotexample.demo.result.Result<java.util.List<com.iotexample.demo.model.Department>> 
-  * @Author: WenYuan
-  * @Date: 2019/5/24 
-  */
+
+  /**
+   * @Description: 返回所有的科室信息
+   * @Param: []
+   * @return: com.iotexample.demo.result.Result<java.util.List < com.iotexample.demo.model.Department>>
+   * @Author: WenYuan
+   * @Date: 2019/5/24
+   */
   @GetMapping
   public Result<List<Department>> getAllDepartment() {
     List<Department> list = departmentService.listDepartment();
     return Result.success(list);
   }
-  
-  /** 
-  * @Description: 放回对应hospitalId的科室信息 
-  * @Param: [hospitalId] 
-  * @return: com.iotexample.demo.result.Result<java.util.List<com.iotexample.demo.model.Department>> 
-  * @Author: WenYuan
-  * @Date: 2019/5/24 
-  */
+
+  /**
+   * @Description: 放回对应hospitalId的科室信息
+   * @Param: [hospitalId]
+   * @return: com.iotexample.demo.result.Result<java.util.List < com.iotexample.demo.model.Department>>
+   * @Author: WenYuan
+   * @Date: 2019/5/24
+   */
   @GetMapping("/{hospitalId}")
   @CrossOrigin
-  public Result<List<Department>> getAllDepartmentByHospitalId(@PathVariable("hospitalId")long hospitalId) {
+  public Result<List<Department>> getAllDepartmentByHospitalId(@PathVariable("hospitalId") long hospitalId) {
     List<Department> list = departmentService.listDepartmentByHospitalId(hospitalId);
     return Result.success(list);
   }

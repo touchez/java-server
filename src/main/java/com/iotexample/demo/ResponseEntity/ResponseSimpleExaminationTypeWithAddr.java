@@ -20,7 +20,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Data
-public class ResponseSimpleExaminationTypeWithAddr implements Serializable{
+public class ResponseSimpleExaminationTypeWithAddr implements Serializable {
   private Long examinationTypeId;
   private String generalString;
   private String addr;

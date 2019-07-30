@@ -50,15 +50,15 @@ public class MedicalRecordController {
   @Autowired
   DoctorService doctorService;
 
-  /** 
-  * @Description: 根据userId获取用户的所以病历
-  * @Param: [userId] 
-  * @return: com.iotexample.demo.result.Result<java.util.List<com.iotexample.demo.ResponseEntity.ResponseMedicalRecord>> 
-  * @Author: WenYuan
-  * @Date: 2019/6/2 
-  */
+  /**
+   * @Description: 根据userId获取用户的所以病历
+   * @Param: [userId]
+   * @return: com.iotexample.demo.result.Result<java.util.List < com.iotexample.demo.ResponseEntity.ResponseMedicalRecord>>
+   * @Author: WenYuan
+   * @Date: 2019/6/2
+   */
   @GetMapping("/{userId}")
-  public Result<List<ResponseMedicalRecord>> getAllMedicalRecord(@PathVariable("userId")long userId) {
+  public Result<List<ResponseMedicalRecord>> getAllMedicalRecord(@PathVariable("userId") long userId) {
     List<Medicalrecord> list = medicalRecordService.getMedicalRecordByUserId(userId);
     List<ResponseMedicalRecord> resList = new ArrayList<>();
     for (Medicalrecord mr : list) {
@@ -68,13 +68,14 @@ public class MedicalRecordController {
     }
     return Result.success(resList);
   }
-  /** 
-  * @Description: 根据medicalRecorderId返回病历的所有信息，包括检查的信息
-  * @Param: [medicalRecordId] 
-  * @return: com.iotexample.demo.result.Result<com.iotexample.demo.ResponseEntity.ResponseMedicalRecord2> 
-  * @Author: WenYuan
-  * @Date: 2019/6/2 
-  */
+
+  /**
+   * @Description: 根据medicalRecorderId返回病历的所有信息，包括检查的信息
+   * @Param: [medicalRecordId]
+   * @return: com.iotexample.demo.result.Result<com.iotexample.demo.ResponseEntity.ResponseMedicalRecord2>
+   * @Author: WenYuan
+   * @Date: 2019/6/2
+   */
   @GetMapping
   @CrossOrigin
   public Result<ResponseMedicalRecord2> getAllMedicalRecord2(@RequestParam("medicalRecordId") long medicalRecordId) {
@@ -94,12 +95,12 @@ public class MedicalRecordController {
   }
 
   /**
-  * @Description: 根据medicalRecordId来返回一串web页面所需的信息
-  * @Param: [medicalRecordId]
-  * @return: com.iotexample.demo.result.Result<com.iotexample.demo.vo.MedicalRecordVo>
-  * @Author: WenYuan
-  * @Date: 2019/6/22
-  */
+   * @Description: 根据medicalRecordId来返回一串web页面所需的信息
+   * @Param: [medicalRecordId]
+   * @return: com.iotexample.demo.result.Result<com.iotexample.demo.vo.MedicalRecordVo>
+   * @Author: WenYuan
+   * @Date: 2019/6/22
+   */
   @GetMapping("/web")
   @CrossOrigin
   public Result<ResponseMedicalRecord1> getWebStyleMedicalRecord(@RequestParam("medicalRecordId") long medicalRecordId) {
@@ -147,6 +148,7 @@ public class MedicalRecordController {
       //TODO 先插入到对应的子项目表中，再插入到收费的总表
       List<ResponseSimpleExaminationType> list1 = examinationTypeService.getAllExaminationTypeByMedicalRecordId(medicalRecordId);
       int length = list1.size();
+      log.info("list1 length is :{}", length);
       //防止重复插入，只插入多出来的部分
       for (int i = length; i < examinationTypes.size(); i++) {
         ExaminationType e = examinationTypes.get(i);
@@ -176,13 +178,12 @@ public class MedicalRecordController {
     }
 
 
-
     if (treatmentDrugOrders != null && treatmentDrugOrders.size() != 0) {
       if (treatmentId == -1) {
         log.info("treatmentId is " + treatmentId);
         treatmentId = treatmentService.insertTreatment(medicalrecord.getUserId(), allCost, medicalRecordId);
         int res = treatmentDrugOrderService.updateTreatmentDrugOrder(treatmentDrugOrders, treatmentId);
-      }else {
+      } else {
         log.info("treatmentId is " + treatmentId);
         int res = treatmentService.updateTreatment(treatmentId, allCost);
         int res1 = treatmentDrugOrderService.updateTreatmentDrugOrder(treatmentDrugOrders, treatmentId);

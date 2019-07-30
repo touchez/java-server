@@ -27,12 +27,12 @@ public class ExaminationTypeServiceTest {
 
   @Test
   public void getAllExaminationTypeByUserIdAndDate() {
-    Date d  = null;
+    Date d = null;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     try {
-      d  = sdf.parse("2019-06-29");
-    }catch (Exception e){
+      d = sdf.parse("2019-06-29");
+    } catch (Exception e) {
       e.printStackTrace();
     }
 
