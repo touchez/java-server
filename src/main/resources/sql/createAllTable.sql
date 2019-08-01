@@ -117,6 +117,7 @@ CREATE TABLE IF NOT EXISTS `medicalRecord`(
 #     `treatment` longtext DEFAULT NULL COMMENT '治疗方式' ,
     `general` longtext DEFAULT NULL COMMENT '概括' ,
     `create_date` DATETIME DEFAULT NULL COMMENT '创建时间' ,
+    `active` INT(1) DEFAULT NULL COMMENT '检查是否活跃状态' ,
     PRIMARY KEY ( `medicalRecord_id` )
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

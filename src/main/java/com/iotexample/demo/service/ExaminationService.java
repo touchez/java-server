@@ -11,6 +11,7 @@ import org.omg.PortableServer.LIFESPAN_POLICY_ID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -122,5 +123,64 @@ public class ExaminationService {
     }
 
     return examinationId;
+  }
+
+  public String updateExamination(Examinationorder res) {
+    String type = res.getExaminationType();
+    Long id = res.getExaminationId();
+
+    String result = "";
+
+    switch (type) {
+      case "ct":
+        Ct ct = ctMapper.selectByPrimaryKey(id);
+
+//        ct.setCtAddr("和谐医院放射科");
+        ct.setCtTime(new Date());
+        ct.setReportTime(new Date());
+        ct.setCtReport("一切正常");
+
+        result = ct.getCtReport();
+
+        int res1 = ctMapper.updateByPrimaryKeySelective(ct);
+
+        log.info("ct is {}, res is {}", ct, res1);
+
+        break;
+      case "xray":
+        Xray xray = xrayMapper.selectByPrimaryKey(id);
+
+        xray.setXrayTime(new Date());
+        xray.setReportTime(new Date());
+        xray.setXrayReport("一切正常");
+
+        result = xray.getXrayReport();
+
+        xrayMapper.updateByPrimaryKeySelective(xray);
+
+        break;
+      case "exsanguinate":
+        Exsanguinate exsanguinate = exsanguinateMapper.selectByPrimaryKey(id);
+
+        exsanguinate.setExsanguinateTime(new Date());
+        exsanguinate.setReportTime(new Date());
+        exsanguinate.setExsanguinateReport("一切正常");
+        exsanguinate.setExsanguinateAttr1("1.23");
+        exsanguinate.setExsanguinateAttr2("2.23");
+        exsanguinate.setExsanguinateAttr3("3.23");
+
+        result = exsanguinate.getExsanguinateReport();
+
+        exsanguinateMapper.updateByPrimaryKeySelective(exsanguinate);
+
+        break;
+
+      default:
+        log.info("error type");
+        break;
+    }
+
+
+    return result;
   }
 }

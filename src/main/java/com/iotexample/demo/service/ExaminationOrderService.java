@@ -133,4 +133,12 @@ public class ExaminationOrderService {
 
     return list;
   }
+
+  public int setInactive(Examinationorder examinationorder) {
+    examinationorder.setActive(1);
+
+    int res = examinationorderMapper.updateByPrimaryKeySelective(examinationorder);
+
+    return res;
+  }
 }

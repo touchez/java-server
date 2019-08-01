@@ -83,9 +83,16 @@ public class MedicalRecordService {
         medicalrecord.setCreateDate(new Date());
       }
 
+      //设置为活跃状态
+      medicalrecord.setActive(0);
+
       int res = medicalrecordMapper.insertSelective(medicalrecord);
     } else {
       //有id则一定在数据库中，故更新
+
+      //假设第二次就是最终的了
+      medicalrecord.setActive(1);
+
       int res = medicalrecordMapper.updateByPrimaryKeySelective(medicalrecord);
     }
 

@@ -119,7 +119,7 @@ public class ExaminationController {
    */
   @GetMapping("/check_active")
   @CrossOrigin
-  public Result<Examinationorder> checkIsActive(@RequestParam("userId") long userId, @RequestParam("type") String type) {
+  public Result<String> checkIsActive(@RequestParam("userId") long userId, @RequestParam("type") String type) {
 
     List<Examinationorder> resList = examinationOrderService.isActive(userId, type);
 
@@ -130,6 +130,12 @@ public class ExaminationController {
     //接口只要返回一个
     Examinationorder res = resList.get(0);
 
-    return Result.success(res);
+    examinationOrderService.setInactive(res);
+
+    log.info("res is {}", res);
+
+    String str = examinationService.updateExamination(res);
+
+    return Result.success(str);
   }
 }

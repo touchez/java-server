@@ -114,6 +114,13 @@
             <version>3.6</version>
         </dependency>
 
+        <!--Netty-socketio socketio的java实现基于springboot和netty-->
+        <dependency>
+            <groupId>com.corundumstudio.socketio</groupId>
+            <artifactId>netty-socketio</artifactId>
+            <version>1.7.12</version>
+        </dependency>
+
     </dependencies>
 
     <build>

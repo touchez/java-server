@@ -8,12 +8,14 @@ import com.iotexample.demo.result.Result;
 import com.iotexample.demo.service.*;
 import com.iotexample.demo.vo.MedicalRecordVo;
 import com.iotexample.demo.vo.SimpleMedicalRecord;
+import com.iotexample.demo.websocketio.MessageEventHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -66,6 +68,9 @@ public class MedicalRecordController {
       String hospitalName = departmentService.getHospitalNameByDepartmentId(mr.getDepartmentId());
       resList.add(new ResponseMedicalRecord(mr, addr, hospitalName));
     }
+
+    Collections.reverse(resList);
+
     return Result.success(resList);
   }
 
@@ -190,6 +195,13 @@ public class MedicalRecordController {
       }
 
     }
+
+
+    //利用socketIO通知小程序跳转
+    //第一次跳转之后就把病历id传过去
+    MessageEventHandler.sendById(medicalrecord.getUserId().toString(), medicalRecordId + "");
+
+
 
     return Result.success(medicalRecordId);
 
