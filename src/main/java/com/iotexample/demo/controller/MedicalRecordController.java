@@ -4,8 +4,10 @@ import com.iotexample.demo.RequestEntity.RequestMedicalRecord;
 import com.iotexample.demo.RequestEntity.RequestNew;
 import com.iotexample.demo.ResponseEntity.*;
 import com.iotexample.demo.model.*;
+import com.iotexample.demo.result.CodeMsg;
 import com.iotexample.demo.result.Result;
 import com.iotexample.demo.service.*;
+import com.iotexample.demo.validator.NeedGuahao2;
 import com.iotexample.demo.vo.MedicalRecordVo;
 import com.iotexample.demo.vo.SimpleMedicalRecord;
 import com.iotexample.demo.websocketio.MessageEventHandler;
@@ -51,6 +53,9 @@ public class MedicalRecordController {
 
   @Autowired
   DoctorService doctorService;
+
+  @Autowired
+  GuahaoService guahaoService;
 
   /**
    * @Description: 根据userId获取用户的所以病历
@@ -211,6 +216,10 @@ public class MedicalRecordController {
   @PostMapping("/web/new")
   @CrossOrigin
   public Result<ResponseNew> newOneMediacalRecord(@RequestBody RequestNew requestNew) {
+
+    if (!guahaoService.checkGuahao(requestNew.getUserId(), requestNew.getDepartmentId(), requestNew.getDoctorId())) {
+      return Result.error(CodeMsg.SESSION_ERROR);
+    }
 
     Medicalrecord medicalRecord = medicalRecordService.newOneMediacalRecord(requestNew);
 

@@ -2,6 +2,7 @@ package com.iotexample.demo.config;
 
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.iotexample.demo.validator.NeedGuahao2Interceptor;
 import com.iotexample.demo.validator.NeedGuahaoInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,14 +35,22 @@ public class WebConfig implements WebMvcConfigurer {
 
   @Override
   public void addInterceptors(InterceptorRegistry registry) {
+    registry.addInterceptor(needGuahao2Interceptor())
+            .addPathPatterns("/**");
     registry.addInterceptor(needGuahaoInterceptor())
             .addPathPatterns("/**");
     registry.addInterceptor(new PerformanceInteceptor())
             .addPathPatterns("/**");
+
   }
 
   @Bean
   public NeedGuahaoInterceptor needGuahaoInterceptor() {
     return new NeedGuahaoInterceptor();
+  }
+
+  @Bean
+  public NeedGuahao2Interceptor needGuahao2Interceptor() {
+    return new NeedGuahao2Interceptor();
   }
 }

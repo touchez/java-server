@@ -15,6 +15,7 @@ import com.iotexample.demo.service.UserService;
 import com.iotexample.demo.util.UUIDUtil;
 import com.iotexample.demo.validator.NeedGuahao;
 import com.iotexample.demo.vo.GuahaoVo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
@@ -35,6 +36,7 @@ import java.util.List;
 
 @RequestMapping("/guahao")
 @RestController
+@Slf4j
 public class GuahaoController {
 
   public static final String COOKIE_NAME_TOKEN = "token";
@@ -70,30 +72,31 @@ public class GuahaoController {
       doctorId = doctorService.getOneByDepartment(departmentId);
     }
 
-    try {
-      Guahao guahao = guahaoService.guahao(userId, departmentId, doctorId);
-      //session.setAttribute("userId", userId);
-
-      //如果没有cookie
-      if (token == null) {
-        token = UUIDUtil.uuid();
-        addCookie(response, token, userId);
-      } else {
-        //如果之前有cookie还重新登录了，就要更新cookie
-        updateCookie(response, token, userId);
-      }
-
-      String str = JSON.toJSONString(guahao);
-
-      JSONObject json = JSONObject.parseObject(str);
-
-      json.put("order", guahaoService.getOrderByGuahaoId(guahao.getGuahaoId()));
-
-      return Result.success(json);
-    } catch (DuplicateKeyException e) {
-
+    //查看是否重复挂号
+    if (guahaoService.checkGuahao(userId, departmentId, doctorId)) {
       return Result.error(CodeMsg.DUPLICATE_ERROR);
     }
+
+
+    Guahao guahao = guahaoService.guahao(userId, departmentId, doctorId);
+    //session.setAttribute("userId", userId);
+
+    //如果没有cookie
+    if (token == null) {
+      token = UUIDUtil.uuid();
+      addCookie(response, token, userId);
+    } else {
+      //如果之前有cookie还重新登录了，就要更新cookie
+      updateCookie(response, token, userId);
+    }
+
+    String str = JSON.toJSONString(guahao);
+
+    JSONObject json = JSONObject.parseObject(str);
+
+    json.put("order", guahaoService.getOrderByGuahaoId(guahao.getGuahaoId()));
+
+    return Result.success(json);
   }
 
   @GetMapping("/{userId}")
@@ -187,5 +190,17 @@ public class GuahaoController {
     int res = guahaoService.deleteGuahaoByUserId(userId);
 
     return Result.success("success");
+  }
+
+  @PutMapping
+  @CrossOrigin
+  public Result<Guahao> changeStateByUserId(@RequestBody long guahaoId) {
+    //这种body的类型用text直接写个值比如142就行了
+    log.info("change the state to 0 about guahaoId : {}", guahaoId);
+
+    Guahao guahao = guahaoService.setStateById(guahaoId, 0);
+
+    return Result.success(guahao);
+
   }
 }

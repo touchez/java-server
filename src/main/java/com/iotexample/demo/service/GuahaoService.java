@@ -136,7 +136,8 @@ public class GuahaoService {
     GuahaoExample guahaoExample = new GuahaoExample();
     guahaoExample.createCriteria()
             .andUserIdEqualTo(userId)
-            .andDepartmentIdEqualTo(departmentId);
+            .andDepartmentIdEqualTo(departmentId)
+            .andStateEqualTo(1);
 
     List<Guahao> list = guahaoMapper.selectByExample(guahaoExample);
 
@@ -161,5 +162,32 @@ public class GuahaoService {
     int res = myGuahaoMapper.deleteGuahaoByUserId(userId);
 
     return res;
+  }
+
+
+  public boolean checkGuahao(long userId, long departmentId, long doctorId) {
+    GuahaoExample guahaoExample = new GuahaoExample();
+    guahaoExample.createCriteria()
+            .andUserIdEqualTo(userId)
+            .andDepartmentIdEqualTo(departmentId)
+            .andDoctorIdEqualTo(doctorId)
+            .andStateEqualTo(1);
+
+    //找到了说明存在这个挂号，即挂过号了
+    List<Guahao> guahaos = guahaoMapper.selectByExample(guahaoExample);
+
+    return guahaos.size() > 0;
+  }
+
+
+  public Guahao setStateById(long guahaoId, int state) {
+
+    Guahao guahao = guahaoMapper.selectByPrimaryKey(guahaoId);
+
+    guahao.setState(state);
+
+    guahaoMapper.updateByPrimaryKeySelective(guahao);
+
+    return guahao;
   }
 }
