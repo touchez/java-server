@@ -1,5 +1,6 @@
 package com.iotexample.demo.controller;
 
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.iotexample.demo.RequestEntity.RequestMedicalRecord;
 import com.iotexample.demo.RequestEntity.RequestNew;
 import com.iotexample.demo.ResponseEntity.*;
@@ -19,6 +20,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.*;
 
 /**
  * @program: iotdemo
@@ -113,9 +115,11 @@ public class MedicalRecordController {
    */
   @GetMapping("/web")
   @CrossOrigin
-  public Result<ResponseMedicalRecord1> getWebStyleMedicalRecord(@RequestParam("medicalRecordId") long medicalRecordId) {
+  public Result<ResponseMedicalRecord1> getWebStyleMedicalRecord(@RequestParam("medicalRecordId")long medicalRecordId) {
 
     // TODO 串行访问数据库导致速度较慢，可以通过使用多线程的方式来并行访问这几张表来提高速度
+
+    long start = System.currentTimeMillis();
 
     log.info("medicalRecordId is " + medicalRecordId);
 
@@ -123,16 +127,28 @@ public class MedicalRecordController {
       medicalRecordId = medicalRecordService.getLatestMedicalRecordId();
     }
 
+    // 多线程从数据库里面获取资料
+    final long fmId = medicalRecordId;
+//    ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
+//            .setNameFormat("medicalRecordController-pool-get-%d").build();
+//    Executor getExecutor = new ThreadPoolExecutor(5, 20, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>(1024), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
 
-    Medicalrecord medicalrecord = medicalRecordService.getMedicalRecordById(medicalRecordId);
+    CompletableFuture<Medicalrecord> f1 = CompletableFuture.supplyAsync(() -> medicalRecordService.getMedicalRecordById(fmId));
 
-    List<ResponseSimpleExaminationType> list1 = examinationTypeService.getAllExaminationTypeByMedicalRecordId(medicalRecordId);
+    CompletableFuture<List<ResponseSimpleExaminationType>> f2 = CompletableFuture.supplyAsync(() -> examinationTypeService.getAllExaminationTypeByMedicalRecordId(fmId));
+    CompletableFuture<List<TreatmentDrugOrder>> f3 = CompletableFuture.supplyAsync(() -> treatmentDrugOrderService.getAllTreatmentDrugOrderByMedicalRecordId(fmId));
+    CompletableFuture<List<SimpleMedicalRecord>> f4 = f1.thenApplyAsync((medicalrecord) -> medicalRecordService.getSimpleMedicalRecordByUserId(medicalrecord.getUserId()));
+    CompletableFuture<ResponseMedicalRecord1> finalf = CompletableFuture.allOf(f1, f2, f3, f4)
+            .thenApply(ignoedVoid -> new ResponseMedicalRecord1(f1.join(), f2.join(), f3.join(), f4.join()));
 
-    List<TreatmentDrugOrder> list2 = treatmentDrugOrderService.getAllTreatmentDrugOrderByMedicalRecordId(medicalRecordId);
+    ResponseMedicalRecord1 responseMedicalRecord1 = null;
+    try {
+      responseMedicalRecord1 = finalf.get();
+    } catch (InterruptedException | ExecutionException e) {
+      log.info("interupt: {}", e.getMessage());
+    }
 
-    List<SimpleMedicalRecord> list3 = medicalRecordService.getSimpleMedicalRecordByUserId(medicalrecord.getUserId());
-
-    ResponseMedicalRecord1 responseMedicalRecord1 = new ResponseMedicalRecord1(medicalrecord, list1, list2, list3);
+    log.info("总耗时：{}", System.currentTimeMillis() - start);
 
     return Result.success(responseMedicalRecord1);
   }
