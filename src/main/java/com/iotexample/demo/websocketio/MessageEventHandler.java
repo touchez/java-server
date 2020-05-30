@@ -6,6 +6,8 @@ import com.corundumstudio.socketio.SocketIOServer;
 import com.corundumstudio.socketio.annotation.OnConnect;
 import com.corundumstudio.socketio.annotation.OnDisconnect;
 import com.corundumstudio.socketio.annotation.OnEvent;
+import com.iotexample.demo.myredis.RedisService;
+import com.iotexample.demo.myredis.UserKey;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,6 +26,9 @@ import java.util.concurrent.ConcurrentHashMap;
 @Slf4j
 public class MessageEventHandler {
 
+  @Autowired
+  RedisService redisService;
+
   public static SocketIOServer socketIOServer;
 
   // userId -> socketIO client Id
@@ -32,7 +37,7 @@ public class MessageEventHandler {
 
   @Autowired
   public MessageEventHandler(SocketIOServer server) {
-    this.socketIOServer = server;
+    socketIOServer = server;
   }
 
   /**
@@ -80,8 +85,24 @@ public class MessageEventHandler {
     client.sendEvent("messageevent","我是服务器都安发送的信息");
   }
 
+  @OnEvent(value = "gps")
+  public void onGPSEvent(SocketIOClient client, AckRequest request, GPSMessage data) {
+    log.info("gps发来消息：" + data);
+    String userId = client.getHandshakeData().getSingleUrlParam("userId");
+    //服务器端向该客户端发送消息
+    //socketIoServer.getClient(client.getSessionId()).sendEvent("messageevent", "你好 data");
+    client.sendEvent("messageevent","gps位置为" + data);
+    redisService.set(UserKey.gps_loc, userId, data);
+  }
+
   public static void sendById(String userId, String message) {   //这里就是向客户端推消息了
     socketIOServer.getClient(clientMap.get(userId)).sendEvent("jump", message);
+    log.info("发送消息给 {} 消息是 {}", userId, message);
+  }
+
+  public static void remoteOpenLockById(String userId, String message) {   //这里就是向客户端推消息了
+    log.info("获取client{}", clientMap.get(userId));
+    socketIOServer.getClient(clientMap.get(userId)).sendEvent("openlock", message);
     log.info("发送消息给 {} 消息是 {}", userId, message);
   }
 }

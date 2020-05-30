@@ -39,10 +39,6 @@ public class DemoApplication {
     socketConfig.setReuseAddress(true);
     config.setSocketConfig(socketConfig);
 
-    config.setKeyStorePassword("123456");
-    InputStream stream = getClass().getClassLoader().getResourceAsStream("./touchez.jks");
-    config.setKeyStore(stream);
-
     final SocketIOServer server = new SocketIOServer(config);
     return server;
   }

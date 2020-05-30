@@ -9,5 +9,5 @@ public class UserKey extends BasePrefix {
 
   public static UserKey token = new UserKey(EXPIRE_SECONDS, "tk");
   public static UserKey getByName = new UserKey(EXPIRE_SECONDS, "tk");
-
+  public static UserKey gps_loc = new UserKey(EXPIRE_SECONDS, "gl");
 }

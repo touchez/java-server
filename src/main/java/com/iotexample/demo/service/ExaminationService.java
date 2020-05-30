@@ -7,7 +7,6 @@ import com.iotexample.demo.dao.ExsanguinateMapper;
 import com.iotexample.demo.dao.XrayMapper;
 import com.iotexample.demo.model.*;
 import lombok.extern.slf4j.Slf4j;
-import org.omg.PortableServer.LIFESPAN_POLICY_ID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
